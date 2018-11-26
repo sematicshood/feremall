@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+    <data>
+        <record id="setting_api_bca" model="ir.ui.view">
+            <field name="name">api.setting.form</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_form"></field>
+            <field name="arch" type="xml">
+                <xpath expr="//form/sheet/notebook/page/group" position="after">
+                    <group name="api_bca">
+                        <field name="api_key" placeholder="API Key"></field>
+                        <field name="api_secret" placeholder="API Secret"></field>
+                        <field name="client_id" placeholder="Client ID"></field>
+                        <field name="client_secret" placeholder="Client Secret"></field>
+                        <field name="corporate_id" placeholder="Corporate ID"></field>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</flectra>

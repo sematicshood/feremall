@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template xml:space="preserve">
+	<div t-name="WebhookLog">
+		<div class="container">
+			<table class="table table-hover" id="table">
+				<thead>
+					<tr>
+						<th>No</th>
+						<th>User</th>
+						<th>Name</th>
+						<th>Type</th>
+						<th>Description</th>
+						<th>Created at</th>
+					</tr>
+				</thead>
+				<tbody id="table-product">
+					
+				</tbody>
+			</table>
+		</div>
+	</div>
+</template>

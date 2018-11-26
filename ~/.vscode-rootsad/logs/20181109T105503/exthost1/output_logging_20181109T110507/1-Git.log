@@ -1,0 +1,33 @@
+Looking for git in: git
+Using git 2.17.1 from git
+> git rev-parse --show-toplevel
+> git config --get commit.template
+Open repository: /home/bima/flectra-dev
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git check-ignore -z --stdin
+> git show :addons/sale_stock/views/sale_order_views.xml
+> git show :addons/sale_stock/views/res_config_settings_views.xml
+> git show :addons/sale_stock/views/account_invoice_views.xml
+> git show :addons/sale_stock/views/stock_views.xml
+> git show :addons/sale_stock/views/stock_config_settings_views.xml
+> git check-ignore -z --stdin
+> git show :addons/sale_stock/report/stock_report_deliveryslip.xml
+> git show :addons/sale_stock/report/sale_order_report_templates.xml
+> git show :addons/sale_stock/report/stock_report_deliveryslip.xml
+> git check-ignore -z --stdin
+> git show :addons/sale_stock/views/sale_order_views.xml
+> git show :addons/sale_stock/views/res_config_settings_views.xml
+> git show :addons/sale_stock/views/account_invoice_views.xml
+> git show :addons/sale_stock/views/res_config_settings_views.xml
+> git show :addons/sale_stock/views/stock_views.xml
+> git show :addons/sale_stock/views/stock_config_settings_views.xml
+> git show :addons/sale_stock/report/stock_report_deliveryslip.xml
+> git show :addons/sale_stock/report/sale_order_report_templates.xml
+> git show :addons/sale_stock/report/stock_report_deliveryslip.xml
+> git show :addons/sale_stock/views/account_invoice_views.xml

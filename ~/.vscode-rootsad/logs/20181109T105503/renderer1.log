@@ -1,0 +1,18 @@
+[2018-11-09 10:55:06.184] [renderer1] [info] standard startup {"version":"1.28.2","ellapsed":1263,"isLatestVersion":true,"didUseCachedData":true,"windowKind":1,"windowCount":1,"viewletId":"workbench.view.explorer","editorIds":["workbench.editors.files.fileEditorInput"],"timers":{"ellapsedAppReady":84,"ellapsedNlsGeneration":0,"ellapsedWindowLoad":264,"ellapsedWindowLoadToRequire":195,"ellapsedRequire":382,"ellapsedExtensions":702,"ellapsedEditorRestore":250,"ellapsedViewletRestore":12,"ellapsedPanelRestore":0,"ellapsedWorkbench":323,"ellapsedExtensionsReady":1645,"ellapsedTimersToTimersComputed":1114},"platform":"linux","release":"4.15.0-38-generic","arch":"x64","totalmem":12468903936,"freemem":2044313600,"meminfo":{"workingSetSize":264116,"peakWorkingSetSize":264844,"privateBytes":172216,"sharedBytes":91908},"cpus":{"count":8,"speed":2381,"model":"Intel(R) Core(TM) i5-8250U CPU @ 1.60GHz"},"loadavg":[3.1201171875,2.47119140625,2.37548828125],"initialStartup":true,"isVMLikelyhood":0,"hasAccessibilitySupport":false,"emptyWorkbench":false,"common.machineId":"0a77d0d3629be85618a4f8eeaba034ed833859fd1cbea7c8c32760e01c6d3eff","sessionID":"f9fac8fe-332b-4b57-af81-34522037c80d1541735704336","commitHash":"7f3ce96ff4729c91352ae6def877e59c561f4850","common.platformVersion":"4.15.0","common.platform":"Linux","common.nodePlatform":"linux","common.nodeArch":"x64","timestamp":"2018-11-09T03:55:06.184Z","common.timesincesessionstart":1848,"common.sequence":23,"common.version.shell":"2.0.9","common.version.renderer":"61.0.3163.100","common.firstSessionDate":"Tue, 06 Nov 2018 11:11:15 GMT","common.lastSessionDate":"Tue, 06 Nov 2018 11:14:18 GMT","common.isNewSession":"0","common.instanceId":"b26a922e-26b3-4a8c-a80c-6dc6912eda39"}
+[2018-11-09 10:55:23.475] [renderer1] [info] no standard startup: not just one text editor
+[2018-11-09 10:57:17.067] [renderer1] [info] no standard startup: not just one text editor
+[2018-11-09 11:05:06.569] [renderer1] [info] no standard startup: not just one text editor
+[2018-11-09 11:08:54.593] [renderer1] [info] no standard startup: not just one text editor
+[2018-11-09 11:14:25.506] [renderer1] [info] no standard startup: not just one text editor
+[2018-11-09 14:07:14.751] [renderer1] [error] spawn ctags ENOENT: Error: spawn ctags ENOENT
+	at _errnoException (util.js:1024:11)
+	at Process.ChildProcess._handle.onexit (internal/child_process.js:190:19)
+	at onErrorNT (internal/child_process.js:372:16)
+	at _combinedTickCallback (internal/process/next_tick.js:138:11)
+	at process._tickCallback (internal/process/next_tick.js:180:9)
+[2018-11-09 14:38:26.851] [renderer1] [error] An unknown error occurred. Please consult the log for more details.
+[2018-11-09 14:39:42.917] [renderer1] [error] An unknown error occurred. Please consult the log for more details.
+[2018-11-09 14:39:46.277] [renderer1] [error] An unknown error occurred. Please consult the log for more details.
+[2018-11-09 14:39:50.957] [renderer1] [error] An unknown error occurred. Please consult the log for more details.
+[2018-11-09 14:40:42.484] [renderer1] [error] An unknown error occurred. Please consult the log for more details.
+[2018-11-09 16:42:50.337] [renderer1] [info] no standard startup: not a new window

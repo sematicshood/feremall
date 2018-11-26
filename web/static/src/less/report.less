@@ -1,0 +1,245 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    color: #000 !important;
+    word-wrap: break-word;
+}
+.border-black td {
+    border-top: 1px solid black !important;
+}
+
+/* See https://github.com/wkhtmltopdf/wkhtmltopdf/issues/1524 */
+.table-condensed {
+    > thead > tr > th {
+        border-bottom: none !important;
+    }
+    > tbody > tr {
+        page-break-inside: avoid !important;
+        border-top: none !important;
+    }
+}
+.zero_min_height {
+    min-height: 0px !important;
+}
+
+/* To avoid broken snippets in report rendering */
+.jumbotron, .panel, .carousel, section{
+    page-break-inside: avoid;
+}
+
+/* Wkhtmltopdf doesn't support very well the media-print CSS (depends on the version) */
+.hidden-print{
+    display: none;
+}
+
+// Modification
+// .image-top {
+//     width: 435%;
+// }
+
+// .body-header {
+//     position: absolute;
+//     top: 30px;
+//     width: 330px;
+//     left: 820px;
+//     text-align: right;
+// }
+
+// .body-header span {
+//     font-size: 12px;
+// }
+
+// .text-top-report {
+//     text-align: center;
+// }
+
+// .table-invoice {
+//     width: 48%;
+//     display: inline-block;
+// }
+
+// .table-invoice:last-child {
+//     float: right;
+// }
+
+// .table-invoice .single {
+//     display: block;
+// }
+
+// .table-invoice .single h5 {
+//     display: inline-block;
+//     margin: 0;
+// }
+
+// .table-invoice .single h5:first-child {
+//     padding: 10px;
+//     padding-left: 0;
+//     width: 39%;
+//     box-sizing: border-box;
+// }
+
+// .table-invoice .single h5:last-child {
+//     padding: 10px;
+//     background: #f2f2f2;
+//     box-sizing: border-box;
+//     width: 60%;
+// }
+
+// .text-footer {
+//     background: #7e7e7e;
+//     text-align: center;
+//     color: white;
+//     padding: 2px;
+//     box-sizing: border-box;
+//     margin-top: 50px;
+// }
+
+// .invoice_tbody img {
+//     display: inline-block;
+// }
+
+// .signature {
+//     width: 200px;
+//     height: 125px;
+// }
+
+// .box-signature {
+//     text-align: center;
+//     width: 250px;
+// }
+
+// ======================================
+
+@font-face {
+    src: url('../../fonts/Gotham-Medium.otf');
+    font-family: 'Medium';
+}
+
+body {
+    font-family: 'Medium'
+}
+
+.logo_report {
+    text-align: center;
+}
+
+.logo_report img {
+    width: 100px;
+}
+
+.text-right-header {
+    position: absolute;
+    right: -100px;
+    top: 105px;
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+}
+
+.text-right-header h6 {
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+}
+
+.image-footer img {
+    width: 100%;
+}
+
+.address_company span {
+    line-height: 24px;
+}
+
+.address_company h6 {
+    margin: 0;
+}
+
+.footer .col-xs-4 {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.footer {
+    width: 100%;
+    margin-bottom: 50px;
+    min-height: 1px;
+    display: inline-block;
+}
+
+// Report Sale
+.note-sale {
+    table {
+        margin-top: 50px;
+
+        tr {
+            td:first-child {
+                width: 65px;
+            }
+
+            td:last-child {
+                
+            }
+
+            td {
+                border: 1px solid black;
+                padding: 10px;
+                box-sizing: border-box;
+
+                h6 {
+                    margin: 0;
+                    margin-bottom: 10px;
+                    line-height: 20px;
+                }
+            }
+        }
+    }
+}
+
+.title-top-sales {
+    text-align: center;
+    margin-top: -100px;
+    left: 32%;
+    transform: translate(-50%, -50%);
+}
+
+.purchase-order {
+    left: 38%;
+}
+
+.order {
+    left: 40%;
+}
+
+.receive_order {
+    left: 25%;
+}
+
+.invoice_address_sale {
+    margin-top: 20px;
+
+    h6 {
+        margin: 5px;
+    }
+
+    span {
+        // line-height: 23px;
+    }
+}
+
+.signature {
+    float: right;
+    text-align: center;
+    page-break-inside: avoid;
+    display: block;
+
+    .gambar {
+        height: 180px;
+    }
+
+    p {
+        width: 250px;
+        display: block;
+    }
+}

@@ -1,0 +1,30 @@
+Looking for git in: git
+Using git 2.17.1 from git
+> git rev-parse --show-toplevel
+> git config --get commit.template
+Open repository: /home/bima/flectra-dev
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git check-ignore -z --stdin
+> git show :addons/account/report/account_invoice_report.py
+> git show :addons/account/report/account_invoice_report_view.xml
+> git check-ignore -z --stdin
+> git check-ignore -z --stdin
+> git show :addons/account/views/account_report.xml
+> git check-ignore -z --stdin
+> git check-ignore -z --stdin
+> git show :addons/account/views/report_invoice.xml
+> git show :addons/account/views/report_invoice.xml.save
+> git show :addons/account/views/report_invoice.xml
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose

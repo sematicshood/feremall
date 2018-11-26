@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+    <template id="scrum_assets_backend" name="scrum_enterprise_assets"
+              inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <script
+                    type="text/javascript"
+                    src="/webhook-woocomers/static/src/js/product_sync.js"
+            ></script>
+            <script
+                    type="text/javascript"
+                    src="/webhook-woocomers/static/src/js/webhook_log.js"
+            ></script>
+            <script
+                    type="text/javascript"
+                    src="/webhook-woocomers/static/src/datatables/datatables.min.js"
+            ></script>
+            <link rel="stylesheet" type="text/css" href="/webhook-woocomers/static/src/datatables/datatables.min.css"/>
+        </xpath>
+    </template>
+
+</flectra>

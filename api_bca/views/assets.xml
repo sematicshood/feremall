@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+    <template id="scrum_assets_backend" name="scrum_enterprise_assets"
+              inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <script
+                    type="text/javascript"
+                    src="/api_bca/static/src/js/api_bca.js"
+            ></script>
+        </xpath>
+    </template>
+
+</flectra>

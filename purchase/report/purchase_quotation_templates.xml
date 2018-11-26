@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+<template id="report_purchasequotation_document">
+    <t t-call="web.external_layout">
+        <t t-set="o" t-value="o.with_context({'lang':o.partner_id.lang})"/>
+        <div class="page">
+            <div class="oe_structure"/>
+            <style>
+            table, th, td{
+                border: 1px solid black;
+            }
+            .padding-kiri{
+                padding-left:10px;
+                padding-top: 5px;
+                padding-bottom:5px;
+            }
+            .thead{
+                background-color: #e2e2e2;
+            }
+            </style>
+            <div class="oe_structure"/>
+            <div>
+                <center><h2>PURCHASE ORDER QUOTATION</h2></center>
+            </div>
+            <div class="row">
+                <div class="col-xs-6 invoice_address_sale">
+                    <h5>To. </h5>
+                    <h5>Bapak/Ibu <span t-field="o.partner_id.name"></span> </h5>
+                    <h5 t-field="o.partner_id.street"></h5>
+                    <h5><span t-field="o.partner_id.city"></span>, <span t-field="o.partner_id.country_id"></span></h5>
+                </div>
+            </div>
+            <br/><br/><br/>
+
+            <div class="row">
+                <div name="branch" t-if="o.branch_id" class="col-xs-3" groups="base_branch_company.group_multi_branch">
+                    <strong>Branch:</strong>
+                    <p t-field="o.branch_id"/>
+                </div>
+            </div>
+
+            <!-- <h2>Request for Quotation <span t-field="o.name"/></h2> -->
+
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="6" class="padding-kiri thead"><strong>Detail Order</strong></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr t-foreach="o.order_line" t-as="order_line">
+                        <td width="45%" class="text-left padding-kiri">
+                            <strong> <span t-esc="order_line_index+1"/>. <span t-field="order_line.product_id.code"/></strong> <br/>
+                            <strong> <span> Nama : </span> <span t-field="order_line.name"/> </strong><br/>  
+                            <span> Note : </span> <span t-field="order_line.product_id.description_sale"/><br/>
+                        </td>
+                        <td width="5%" class="text-center" style="vertical-align: middle">
+                            <!-- <span t-field="order_line.state" ></span> -->
+                            <span>OK</span>
+                        </td>
+                        <!-- <td class="text-center">
+                            <span t-field="order_line.date_planned"/>
+                        </td> -->
+                        <td width="15%" class="text-center" style="vertical-align: middle">
+                            <center>
+                                <span t-field="order_line.product_id.image_small" t-field-options="{&quot;widget&quot;: &quot;image&quot;, &quot;class&quot;: &quot;img-rounded&quot;}"/>
+                            </center>
+                        </td>
+                        <td width="10%" class="text-center" style="vertical-align: middle">
+                            <span t-field="order_line.product_qty"/>
+                            <!-- <span t-field="order_line.product_uom" groups="product.group_uom"/> -->
+                        </td>
+                        <td width="10%" class="text-center" style="vertical-align: middle">
+                            <span t-field="order_line.product_uom"/>
+                        </td>
+                        <td width="15%" ></td>
+                    </tr>
+                </tbody>
+            </table> <br/> <br/> <br/>
+
+            <p t-field="o.notes"/>
+
+            <div class="oe_structure"/>
+        </div>
+    </t>
+</template>
+
+<template id="report_purchasequotation">
+    <t t-call="web.html_container">
+        <t t-foreach="docs" t-as="o">
+            <t t-call="purchase.report_purchasequotation_document" t-lang="o.partner_id.lang"/>
+        </t>
+    </t>
+</template>
+</flectra>
+    

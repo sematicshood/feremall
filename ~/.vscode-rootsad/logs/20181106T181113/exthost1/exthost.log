@@ -1,0 +1,86 @@
+[2018-11-06 18:11:15.980] [exthost] [info] extension host started
+[2018-11-06 18:11:15.998] [exthost] [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch {"startup":true,"activationEvent":"*"}
+[2018-11-06 18:11:15.998] [exthost] [info] ExtensionService#loadCommonJSModule /snap/vscode/64/usr/share/code/resources/app/extensions/debug-auto-launch/dist/extension
+[2018-11-06 18:11:16.005] [exthost] [info] ExtensionService#_doActivateExtension vscode.emmet {"startup":true,"activationEvent":"*"}
+[2018-11-06 18:11:16.005] [exthost] [info] ExtensionService#loadCommonJSModule /snap/vscode/64/usr/share/code/resources/app/extensions/emmet/dist/extension
+[2018-11-06 18:11:16.036] [exthost] [info] ExtensionService#_doActivateExtension vscode.git {"startup":true,"activationEvent":"*"}
+[2018-11-06 18:11:16.036] [exthost] [info] ExtensionService#loadCommonJSModule /snap/vscode/64/usr/share/code/resources/app/extensions/git/dist/main
+[2018-11-06 18:11:16.155] [exthost] [info] ExtensionService#_doActivateExtension vscode.merge-conflict {"startup":true,"activationEvent":"*"}
+[2018-11-06 18:11:16.155] [exthost] [info] ExtensionService#loadCommonJSModule /snap/vscode/64/usr/share/code/resources/app/extensions/merge-conflict/dist/extension
+[2018-11-06 18:11:16.160] [exthost] [info] ExtensionService#_doActivateExtension vscode.search-rg {"startup":true,"activationEvent":"*"}
+[2018-11-06 18:11:16.160] [exthost] [info] ExtensionService#loadCommonJSModule /snap/vscode/64/usr/share/code/resources/app/extensions/search-rg/dist/extension
+[2018-11-06 18:11:16.165] [exthost] [info] ExtensionService#_doActivateExtension formulahendry.auto-close-tag {"startup":true,"activationEvent":"*"}
+[2018-11-06 18:11:16.165] [exthost] [info] ExtensionService#loadCommonJSModule /root/.vscode/extensions/formulahendry.auto-close-tag-0.5.6/out/src/extension
+[2018-11-06 18:11:16.167] [exthost] [info] ExtensionService#_doActivateExtension formulahendry.auto-rename-tag {"startup":true,"activationEvent":"*"}
+[2018-11-06 18:11:16.167] [exthost] [info] ExtensionService#loadCommonJSModule /root/.vscode/extensions/formulahendry.auto-rename-tag-0.0.15/out/src/extension
+[2018-11-06 18:11:16.168] [exthost] [info] ExtensionService#_doActivateExtension robertohuertasm.vscode-icons {"startup":true,"activationEvent":"*"}
+[2018-11-06 18:11:16.168] [exthost] [info] ExtensionService#loadCommonJSModule /root/.vscode/extensions/robertohuertasm.vscode-icons-7.28.0/out/src/
+[2018-11-06 18:11:16.236] [exthost] [info] eager extensions activated
+[2018-11-06 18:11:16.238] [exthost] [info] ExtensionService#_doActivateExtension GrapeCity.gc-excelviewer {"startup":false,"activationEvent":"onLanguage:plaintext"}
+[2018-11-06 18:11:16.238] [exthost] [info] ExtensionService#loadCommonJSModule /root/.vscode/extensions/grapecity.gc-excelviewer-2.1.26/out/src/extension
+[2018-11-06 18:11:16.552] [exthost] [info] ExtensionService#_doActivateExtension mechatroner.rainbow-csv {"startup":false,"activationEvent":"onLanguage:plaintext"}
+[2018-11-06 18:11:16.552] [exthost] [info] ExtensionService#loadCommonJSModule /root/.vscode/extensions/mechatroner.rainbow-csv-0.7.1/extension
+[2018-11-06 18:11:39.949] [exthost] [info] extension host started
+[2018-11-06 18:11:39.969] [exthost] [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch {"startup":true,"activationEvent":"*"}
+[2018-11-06 18:11:39.969] [exthost] [info] ExtensionService#loadCommonJSModule /snap/vscode/64/usr/share/code/resources/app/extensions/debug-auto-launch/dist/extension
+[2018-11-06 18:11:39.975] [exthost] [info] ExtensionService#_doActivateExtension vscode.emmet {"startup":true,"activationEvent":"*"}
+[2018-11-06 18:11:39.975] [exthost] [info] ExtensionService#loadCommonJSModule /snap/vscode/64/usr/share/code/resources/app/extensions/emmet/dist/extension
+[2018-11-06 18:11:40.006] [exthost] [info] ExtensionService#_doActivateExtension vscode.git {"startup":true,"activationEvent":"*"}
+[2018-11-06 18:11:40.006] [exthost] [info] ExtensionService#loadCommonJSModule /snap/vscode/64/usr/share/code/resources/app/extensions/git/dist/main
+[2018-11-06 18:11:40.104] [exthost] [info] ExtensionService#_doActivateExtension vscode.merge-conflict {"startup":true,"activationEvent":"*"}
+[2018-11-06 18:11:40.104] [exthost] [info] ExtensionService#loadCommonJSModule /snap/vscode/64/usr/share/code/resources/app/extensions/merge-conflict/dist/extension
+[2018-11-06 18:11:40.110] [exthost] [info] ExtensionService#_doActivateExtension vscode.search-rg {"startup":true,"activationEvent":"*"}
+[2018-11-06 18:11:40.110] [exthost] [info] ExtensionService#loadCommonJSModule /snap/vscode/64/usr/share/code/resources/app/extensions/search-rg/dist/extension
+[2018-11-06 18:11:40.113] [exthost] [info] ExtensionService#_doActivateExtension formulahendry.auto-close-tag {"startup":true,"activationEvent":"*"}
+[2018-11-06 18:11:40.113] [exthost] [info] ExtensionService#loadCommonJSModule /root/.vscode/extensions/formulahendry.auto-close-tag-0.5.6/out/src/extension
+[2018-11-06 18:11:40.114] [exthost] [info] ExtensionService#_doActivateExtension formulahendry.auto-rename-tag {"startup":true,"activationEvent":"*"}
+[2018-11-06 18:11:40.114] [exthost] [info] ExtensionService#loadCommonJSModule /root/.vscode/extensions/formulahendry.auto-rename-tag-0.0.15/out/src/extension
+[2018-11-06 18:11:40.115] [exthost] [info] ExtensionService#_doActivateExtension robertohuertasm.vscode-icons {"startup":true,"activationEvent":"*"}
+[2018-11-06 18:11:40.115] [exthost] [info] ExtensionService#loadCommonJSModule /root/.vscode/extensions/robertohuertasm.vscode-icons-7.28.0/out/src/
+[2018-11-06 18:11:40.170] [exthost] [info] eager extensions activated
+[2018-11-06 18:11:40.172] [exthost] [info] ExtensionService#_doActivateExtension GrapeCity.gc-excelviewer {"startup":false,"activationEvent":"onLanguage:plaintext"}
+[2018-11-06 18:11:40.172] [exthost] [info] ExtensionService#loadCommonJSModule /root/.vscode/extensions/grapecity.gc-excelviewer-2.1.26/out/src/extension
+[2018-11-06 18:11:40.393] [exthost] [info] ExtensionService#_doActivateExtension mechatroner.rainbow-csv {"startup":false,"activationEvent":"onLanguage:plaintext"}
+[2018-11-06 18:11:40.393] [exthost] [info] ExtensionService#loadCommonJSModule /root/.vscode/extensions/mechatroner.rainbow-csv-0.7.1/extension
+[2018-11-06 18:11:44.244] [exthost] [info] ExtensionService#_doActivateExtension vscode.configuration-editing {"startup":false,"activationEvent":"onLanguage:jsonc"}
+[2018-11-06 18:11:44.244] [exthost] [info] ExtensionService#loadCommonJSModule /snap/vscode/64/usr/share/code/resources/app/extensions/configuration-editing/dist/extension
+[2018-11-06 18:11:44.256] [exthost] [info] ExtensionService#_doActivateExtension vscode.json-language-features {"startup":false,"activationEvent":"onLanguage:jsonc"}
+[2018-11-06 18:11:44.256] [exthost] [info] ExtensionService#loadCommonJSModule /snap/vscode/64/usr/share/code/resources/app/extensions/json-language-features/client/dist/jsonMain
+[2018-11-06 18:11:44.326] [exthost] [info] ExtensionService#_doActivateExtension vscode.typescript-language-features {"startup":false,"activationEvent":"onLanguage:jsonc"}
+[2018-11-06 18:11:44.326] [exthost] [info] ExtensionService#loadCommonJSModule /snap/vscode/64/usr/share/code/resources/app/extensions/typescript-language-features/dist/extension
+[2018-11-06 18:11:47.787] [exthost] [info] ExtensionService#_doActivateExtension vscode.python {"startup":false,"activationEvent":"onLanguage:python"}
+[2018-11-06 18:11:47.787] [exthost] [info] ExtensionService#loadCommonJSModule /snap/vscode/64/usr/share/code/resources/app/extensions/python/out/pythonMain
+[2018-11-06 18:11:47.788] [exthost] [info] ExtensionService#_doActivateExtension ms-python.python {"startup":false,"activationEvent":"onLanguage:python"}
+[2018-11-06 18:11:47.788] [exthost] [info] ExtensionService#loadCommonJSModule /root/.vscode/extensions/ms-python.python-2018.9.2/out/client/extension
+[2018-11-06 18:14:18.673] [exthost] [info] extension host started
+[2018-11-06 18:14:18.694] [exthost] [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch {"startup":true,"activationEvent":"*"}
+[2018-11-06 18:14:18.694] [exthost] [info] ExtensionService#loadCommonJSModule /snap/vscode/64/usr/share/code/resources/app/extensions/debug-auto-launch/dist/extension
+[2018-11-06 18:14:18.700] [exthost] [info] ExtensionService#_doActivateExtension vscode.emmet {"startup":true,"activationEvent":"*"}
+[2018-11-06 18:14:18.700] [exthost] [info] ExtensionService#loadCommonJSModule /snap/vscode/64/usr/share/code/resources/app/extensions/emmet/dist/extension
+[2018-11-06 18:14:18.737] [exthost] [info] ExtensionService#_doActivateExtension vscode.git {"startup":true,"activationEvent":"*"}
+[2018-11-06 18:14:18.737] [exthost] [info] ExtensionService#loadCommonJSModule /snap/vscode/64/usr/share/code/resources/app/extensions/git/dist/main
+[2018-11-06 18:14:18.846] [exthost] [info] ExtensionService#_doActivateExtension vscode.merge-conflict {"startup":true,"activationEvent":"*"}
+[2018-11-06 18:14:18.846] [exthost] [info] ExtensionService#loadCommonJSModule /snap/vscode/64/usr/share/code/resources/app/extensions/merge-conflict/dist/extension
+[2018-11-06 18:14:18.851] [exthost] [info] ExtensionService#_doActivateExtension vscode.search-rg {"startup":true,"activationEvent":"*"}
+[2018-11-06 18:14:18.851] [exthost] [info] ExtensionService#loadCommonJSModule /snap/vscode/64/usr/share/code/resources/app/extensions/search-rg/dist/extension
+[2018-11-06 18:14:18.854] [exthost] [info] ExtensionService#_doActivateExtension formulahendry.auto-close-tag {"startup":true,"activationEvent":"*"}
+[2018-11-06 18:14:18.854] [exthost] [info] ExtensionService#loadCommonJSModule /root/.vscode/extensions/formulahendry.auto-close-tag-0.5.6/out/src/extension
+[2018-11-06 18:14:18.855] [exthost] [info] ExtensionService#_doActivateExtension formulahendry.auto-rename-tag {"startup":true,"activationEvent":"*"}
+[2018-11-06 18:14:18.855] [exthost] [info] ExtensionService#loadCommonJSModule /root/.vscode/extensions/formulahendry.auto-rename-tag-0.0.15/out/src/extension
+[2018-11-06 18:14:18.856] [exthost] [info] ExtensionService#_doActivateExtension robertohuertasm.vscode-icons {"startup":true,"activationEvent":"*"}
+[2018-11-06 18:14:18.856] [exthost] [info] ExtensionService#loadCommonJSModule /root/.vscode/extensions/robertohuertasm.vscode-icons-7.28.0/out/src/
+[2018-11-06 18:14:18.912] [exthost] [info] eager extensions activated
+[2018-11-06 18:14:18.913] [exthost] [info] ExtensionService#_doActivateExtension GrapeCity.gc-excelviewer {"startup":false,"activationEvent":"onLanguage:plaintext"}
+[2018-11-06 18:14:18.913] [exthost] [info] ExtensionService#loadCommonJSModule /root/.vscode/extensions/grapecity.gc-excelviewer-2.1.26/out/src/extension
+[2018-11-06 18:14:19.133] [exthost] [info] ExtensionService#_doActivateExtension mechatroner.rainbow-csv {"startup":false,"activationEvent":"onLanguage:plaintext"}
+[2018-11-06 18:14:19.133] [exthost] [info] ExtensionService#loadCommonJSModule /root/.vscode/extensions/mechatroner.rainbow-csv-0.7.1/extension
+[2018-11-06 18:14:28.706] [exthost] [info] ExtensionService#_doActivateExtension vscode.python {"startup":false,"activationEvent":"onLanguage:python"}
+[2018-11-06 18:14:28.706] [exthost] [info] ExtensionService#loadCommonJSModule /snap/vscode/64/usr/share/code/resources/app/extensions/python/out/pythonMain
+[2018-11-06 18:14:28.707] [exthost] [info] ExtensionService#_doActivateExtension ms-python.python {"startup":false,"activationEvent":"onLanguage:python"}
+[2018-11-06 18:14:28.707] [exthost] [info] ExtensionService#loadCommonJSModule /root/.vscode/extensions/ms-python.python-2018.9.2/out/client/extension
+[2018-11-06 19:44:52.707] [exthost] [info] ExtensionService#_doActivateExtension vscode.typescript-language-features {"startup":false,"activationEvent":"onLanguage:javascript"}
+[2018-11-06 19:44:52.707] [exthost] [info] ExtensionService#loadCommonJSModule /snap/vscode/64/usr/share/code/resources/app/extensions/typescript-language-features/dist/extension
+[2018-11-06 19:45:18.249] [exthost] [info] ExtensionService#_doActivateExtension vscode.extension-editing {"startup":false,"activationEvent":"onLanguage:typescript"}
+[2018-11-06 19:45:18.249] [exthost] [info] ExtensionService#loadCommonJSModule /snap/vscode/64/usr/share/code/resources/app/extensions/extension-editing/dist/extension
+[2018-11-06 20:39:14.208] [exthost] [info] ExtensionService#_doActivateExtension vscode.css-language-features {"startup":false,"activationEvent":"onLanguage:less"}
+[2018-11-06 20:39:14.209] [exthost] [info] ExtensionService#loadCommonJSModule /snap/vscode/64/usr/share/code/resources/app/extensions/css-language-features/client/dist/cssMain

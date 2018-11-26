@@ -1,0 +1,9 @@
+Starting Jedi Python language engine.
+##########Linting Output - pylint##########
+************* Module account.report.account_invoice_report
+3,0,error,E0401:Unable to import 'flectra'
+4,0,error,E0401:Unable to import 'flectra'
+
+-----------------------------------
+Your code has been rated at 8.46/10
+

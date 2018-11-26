@@ -1,0 +1,381 @@
+Starting Jedi Python language engine.
+##########Linting Output - pylint##########
+
+--------------------------------------------------------------------
+Your code has been rated at 10.00/10 (previous run: 10.00/10, +0.00)
+
+##########Linting Output - pylint##########
+************* Module project_scrum.controllers.backend
+3,0,error,E0401:Unable to import 'flectra'
+4,0,error,E0401:Unable to import 'flectra.http'
+
+-------------------------------------------------------------------
+Your code has been rated at 7.87/10 (previous run: 10.00/10, -2.13)
+
+##########Linting Output - pylint##########
+************* Module project_scrum.controllers.backend
+3,0,error,E0401:Unable to import 'flectra'
+4,0,error,E0401:Unable to import 'flectra.http'
+109,8,warning,W0612:Unused variable 'data'
+
+------------------------------------------------------------------
+Your code has been rated at 7.84/10 (previous run: 7.87/10, -0.03)
+
+##########Linting Output - pylint##########
+************* Module project_scrum.controllers.backend
+3,0,error,E0401:Unable to import 'flectra'
+4,0,error,E0401:Unable to import 'flectra.http'
+109,8,warning,W0612:Unused variable 'data'
+
+------------------------------------------------------------------
+Your code has been rated at 7.84/10 (previous run: 7.84/10, +0.00)
+
+##########Linting Output - pylint##########
+************* Module project_scrum.controllers.backend
+3,0,error,E0401:Unable to import 'flectra'
+4,0,error,E0401:Unable to import 'flectra.http'
+109,8,warning,W0612:Unused variable 'data'
+
+------------------------------------------------------------------
+Your code has been rated at 7.84/10 (previous run: 7.84/10, +0.00)
+
+##########Linting Output - pylint##########
+************* Module project_scrum.controllers.backend
+3,0,error,E0401:Unable to import 'flectra'
+4,0,error,E0401:Unable to import 'flectra.http'
+109,8,warning,W0612:Unused variable 'datas'
+
+------------------------------------------------------------------
+Your code has been rated at 7.84/10 (previous run: 7.84/10, +0.00)
+
+##########Linting Output - pylint##########
+************* Module project_scrum.controllers.backend
+3,0,error,E0401:Unable to import 'flectra'
+4,0,error,E0401:Unable to import 'flectra.http'
+109,8,warning,W0612:Unused variable 'data'
+
+------------------------------------------------------------------
+Your code has been rated at 7.84/10 (previous run: 7.84/10, +0.00)
+
+##########Linting Output - pylint##########
+************* Module project_scrum.controllers.backend
+3,0,error,E0401:Unable to import 'flectra'
+4,0,error,E0401:Unable to import 'flectra.http'
+109,8,warning,W0612:Unused variable 'data'
+
+------------------------------------------------------------------
+Your code has been rated at 7.84/10 (previous run: 7.84/10, +0.00)
+
+##########Linting Output - pylint##########
+************* Module project_scrum.controllers.backend
+3,0,error,E0401:Unable to import 'flectra'
+4,0,error,E0401:Unable to import 'flectra.http'
+109,8,warning,W0612:Unused variable 'data'
+
+------------------------------------------------------------------
+Your code has been rated at 7.84/10 (previous run: 7.84/10, +0.00)
+
+##########Linting Output - pylint##########
+************* Module project_scrum.controllers.backend
+3,0,error,E0401:Unable to import 'flectra'
+4,0,error,E0401:Unable to import 'flectra.http'
+109,8,warning,W0612:Unused variable 'data'
+
+------------------------------------------------------------------
+Your code has been rated at 7.84/10 (previous run: 7.84/10, +0.00)
+
+##########Linting Output - pylint##########
+************* Module project_scrum.controllers.backend
+3,0,error,E0401:Unable to import 'flectra'
+4,0,error,E0401:Unable to import 'flectra.http'
+109,8,warning,W0612:Unused variable 'data'
+
+------------------------------------------------------------------
+Your code has been rated at 7.84/10 (previous run: 7.84/10, +0.00)
+
+##########Linting Output - pylint##########
+************* Module project_scrum.controllers.backend
+3,0,error,E0401:Unable to import 'flectra'
+4,0,error,E0401:Unable to import 'flectra.http'
+109,8,warning,W0612:Unused variable 'data'
+
+------------------------------------------------------------------
+Your code has been rated at 7.84/10 (previous run: 7.84/10, +0.00)
+
+##########Linting Output - pylint##########
+************* Module project_scrum.controllers.backend
+3,0,error,E0401:Unable to import 'flectra'
+4,0,error,E0401:Unable to import 'flectra.http'
+109,8,warning,W0612:Unused variable 'data'
+
+------------------------------------------------------------------
+Your code has been rated at 7.84/10 (previous run: 7.84/10, +0.00)
+
+##########Linting Output - pylint##########
+************* Module project_scrum.controllers.backend
+3,0,error,E0401:Unable to import 'flectra'
+4,0,error,E0401:Unable to import 'flectra.http'
+110,8,warning,W0612:Unused variable 'ratio'
+109,8,warning,W0612:Unused variable 'data'
+
+------------------------------------------------------------------
+Your code has been rated at 7.65/10 (previous run: 7.84/10, -0.20)
+
+##########Linting Output - pylint##########
+************* Module project_scrum.controllers.backend
+3,0,error,E0401:Unable to import 'flectra'
+4,0,error,E0401:Unable to import 'flectra.http'
+109,8,warning,W0612:Unused variable 'data'
+
+------------------------------------------------------------------
+Your code has been rated at 7.84/10 (previous run: 7.65/10, +0.20)
+
+##########Linting Output - pylint##########
+************* Module project_scrum.controllers.backend
+3,0,error,E0401:Unable to import 'flectra'
+4,0,error,E0401:Unable to import 'flectra.http'
+109,8,warning,W0612:Unused variable 'data'
+
+------------------------------------------------------------------
+Your code has been rated at 7.84/10 (previous run: 7.84/10, +0.00)
+
+##########Linting Output - pylint##########
+************* Module project_scrum.controllers.backend
+3,0,error,E0401:Unable to import 'flectra'
+4,0,error,E0401:Unable to import 'flectra.http'
+112,8,error,E1101:Instance of 'list' has no 'push' member
+
+------------------------------------------------------------------
+Your code has been rated at 7.12/10 (previous run: 7.84/10, -0.73)
+
+##########Linting Output - pylint##########
+************* Module project_scrum.controllers.backend
+3,0,error,E0401:Unable to import 'flectra'
+4,0,error,E0401:Unable to import 'flectra.http'
+
+------------------------------------------------------------------
+Your code has been rated at 8.08/10 (previous run: 7.12/10, +0.96)
+
+##########Linting Output - pylint##########
+************* Module project_scrum.controllers.backend
+3,0,error,E0401:Unable to import 'flectra'
+4,0,error,E0401:Unable to import 'flectra.http'
+
+------------------------------------------------------------------
+Your code has been rated at 8.08/10 (previous run: 8.08/10, +0.00)
+
+##########Linting Output - pylint##########
+************* Module project_scrum.controllers.backend
+3,0,error,E0401:Unable to import 'flectra'
+4,0,error,E0401:Unable to import 'flectra.http'
+
+------------------------------------------------------------------
+Your code has been rated at 8.08/10 (previous run: 8.08/10, +0.00)
+
+##########Linting Output - pylint##########
+************* Module project_scrum.controllers.backend
+3,0,error,E0401:Unable to import 'flectra'
+4,0,error,E0401:Unable to import 'flectra.http'
+
+------------------------------------------------------------------
+Your code has been rated at 8.08/10 (previous run: 8.08/10, +0.00)
+
+##########Linting Output - pylint##########
+************* Module project_scrum.controllers.backend
+3,0,error,E0401:Unable to import 'flectra'
+4,0,error,E0401:Unable to import 'flectra.http'
+
+------------------------------------------------------------------
+Your code has been rated at 8.08/10 (previous run: 8.08/10, +0.00)
+
+##########Linting Output - pylint##########
+************* Module project_scrum.controllers.backend
+3,0,error,E0401:Unable to import 'flectra'
+4,0,error,E0401:Unable to import 'flectra.http'
+
+------------------------------------------------------------------
+Your code has been rated at 8.08/10 (previous run: 8.08/10, +0.00)
+
+##########Linting Output - pylint##########
+************* Module project_scrum.controllers.backend
+3,0,error,E0401:Unable to import 'flectra'
+4,0,error,E0401:Unable to import 'flectra.http'
+
+------------------------------------------------------------------
+Your code has been rated at 8.11/10 (previous run: 8.08/10, +0.04)
+
+##########Linting Output - pylint##########
+************* Module project_scrum.controllers.backend
+3,0,error,E0401:Unable to import 'flectra'
+4,0,error,E0401:Unable to import 'flectra.http'
+
+------------------------------------------------------------------
+Your code has been rated at 8.08/10 (previous run: 8.11/10, -0.04)
+
+##########Linting Output - pylint##########
+************* Module project_scrum.controllers.backend
+3,0,error,E0401:Unable to import 'flectra'
+4,0,error,E0401:Unable to import 'flectra.http'
+112,8,error,E1101:Instance of 'dict' has no 'append' member
+
+------------------------------------------------------------------
+Your code has been rated at 7.12/10 (previous run: 8.08/10, -0.96)
+
+##########Linting Output - pylint##########
+************* Module project_scrum.controllers.backend
+3,0,error,E0401:Unable to import 'flectra'
+4,0,error,E0401:Unable to import 'flectra.http'
+
+------------------------------------------------------------------
+Your code has been rated at 8.08/10 (previous run: 7.12/10, +0.96)
+
+##########Linting Output - pylint##########
+************* Module project_scrum.controllers.backend
+3,0,error,E0401:Unable to import 'flectra'
+4,0,error,E0401:Unable to import 'flectra.http'
+
+------------------------------------------------------------------
+Your code has been rated at 8.08/10 (previous run: 8.08/10, +0.00)
+
+##########Linting Output - pylint##########
+************* Module project_scrum.controllers.backend
+3,0,error,E0401:Unable to import 'flectra'
+4,0,error,E0401:Unable to import 'flectra.http'
+
+------------------------------------------------------------------
+Your code has been rated at 8.08/10 (previous run: 8.08/10, +0.00)
+
+##########Linting Output - pylint##########
+************* Module project_scrum.controllers.backend
+3,0,error,E0401:Unable to import 'flectra'
+4,0,error,E0401:Unable to import 'flectra.http'
+
+------------------------------------------------------------------
+Your code has been rated at 8.08/10 (previous run: 8.08/10, +0.00)
+
+##########Linting Output - pylint##########
+************* Module project_scrum.controllers.backend
+3,0,error,E0401:Unable to import 'flectra'
+4,0,error,E0401:Unable to import 'flectra.http'
+
+------------------------------------------------------------------
+Your code has been rated at 8.08/10 (previous run: 8.08/10, +0.00)
+
+##########Linting Output - pylint##########
+************* Module project_scrum.controllers.backend
+3,0,error,E0401:Unable to import 'flectra'
+4,0,error,E0401:Unable to import 'flectra.http'
+
+------------------------------------------------------------------
+Your code has been rated at 8.08/10 (previous run: 8.08/10, +0.00)
+
+##########Linting Output - pylint##########
+************* Module project_scrum.controllers.backend
+3,0,error,E0401:Unable to import 'flectra'
+4,0,error,E0401:Unable to import 'flectra.http'
+
+------------------------------------------------------------------
+Your code has been rated at 8.08/10 (previous run: 8.08/10, +0.00)
+
+##########Linting Output - pylint##########
+************* Module project_scrum.controllers.backend
+3,0,error,E0401:Unable to import 'flectra'
+4,0,error,E0401:Unable to import 'flectra.http'
+
+------------------------------------------------------------------
+Your code has been rated at 8.08/10 (previous run: 8.08/10, +0.00)
+
+##########Linting Output - pylint##########
+************* Module project_scrum.controllers.backend
+3,0,error,E0401:Unable to import 'flectra'
+4,0,error,E0401:Unable to import 'flectra.http'
+
+------------------------------------------------------------------
+Your code has been rated at 8.08/10 (previous run: 8.08/10, +0.00)
+
+##########Linting Output - pylint##########
+************* Module project_scrum.controllers.backend
+3,0,error,E0401:Unable to import 'flectra'
+4,0,error,E0401:Unable to import 'flectra.http'
+
+------------------------------------------------------------------
+Your code has been rated at 8.08/10 (previous run: 8.08/10, +0.00)
+
+##########Linting Output - pylint##########
+************* Module project_scrum.controllers.backend
+3,0,error,E0401:Unable to import 'flectra'
+4,0,error,E0401:Unable to import 'flectra.http'
+
+------------------------------------------------------------------
+Your code has been rated at 8.08/10 (previous run: 8.08/10, +0.00)
+
+##########Linting Output - pylint##########
+************* Module project_scrum.controllers.backend
+3,0,error,E0401:Unable to import 'flectra'
+4,0,error,E0401:Unable to import 'flectra.http'
+
+------------------------------------------------------------------
+Your code has been rated at 8.15/10 (previous run: 8.08/10, +0.07)
+
+##########Linting Output - pylint##########
+************* Module project_scrum.controllers.backend
+113,0,error,E0001:invalid syntax (<string>, line 113)
+##########Linting Output - pylint##########
+************* Module project_scrum.controllers.backend
+113,0,error,E0001:invalid syntax (<string>, line 113)
+##########Linting Output - pylint##########
+************* Module project_scrum.controllers.backend
+113,0,error,E0001:invalid syntax (<string>, line 113)
+##########Linting Output - pylint##########
+************* Module project_scrum.controllers.backend
+113,0,error,E0001:invalid syntax (<string>, line 113)
+##########Linting Output - pylint##########
+************* Module project_scrum.controllers.backend
+117,0,error,E0001:invalid syntax (<string>, line 117)
+##########Linting Output - pylint##########
+************* Module project_scrum.controllers.backend
+117,0,error,E0001:invalid syntax (<string>, line 117)
+##########Linting Output - pylint##########
+************* Module project_scrum.controllers.backend
+117,0,error,E0001:invalid syntax (<string>, line 117)
+##########Linting Output - pylint##########
+************* Module project_scrum.controllers.backend
+3,0,error,E0401:Unable to import 'flectra'
+4,0,error,E0401:Unable to import 'flectra.http'
+117,36,error,E0602:Undefined variable 'null'
+
+------------------------------------------------------------------
+Your code has been rated at 7.46/10 (previous run: 8.15/10, -0.69)
+
+##########Linting Output - pylint##########
+************* Module project_scrum.controllers.backend
+3,0,error,E0401:Unable to import 'flectra'
+4,0,error,E0401:Unable to import 'flectra.http'
+
+------------------------------------------------------------------
+Your code has been rated at 8.28/10 (previous run: 7.46/10, +0.82)
+
+##########Linting Output - pylint##########
+************* Module project_scrum.controllers.backend
+3,0,error,E0401:Unable to import 'flectra'
+4,0,error,E0401:Unable to import 'flectra.http'
+
+------------------------------------------------------------------
+Your code has been rated at 8.41/10 (previous run: 8.28/10, +0.14)
+
+##########Linting Output - pylint##########
+************* Module project_scrum.controllers.backend
+3,0,error,E0401:Unable to import 'flectra'
+4,0,error,E0401:Unable to import 'flectra.http'
+
+------------------------------------------------------------------
+Your code has been rated at 8.51/10 (previous run: 8.41/10, +0.09)
+
+##########Linting Output - pylint##########
+************* Module project_scrum.controllers.backend
+3,0,error,E0401:Unable to import 'flectra'
+4,0,error,E0401:Unable to import 'flectra.http'
+
+------------------------------------------------------------------
+Your code has been rated at 8.51/10 (previous run: 8.51/10, +0.00)
+

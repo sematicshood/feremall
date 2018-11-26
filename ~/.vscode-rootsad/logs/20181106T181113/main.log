@@ -1,0 +1,8 @@
+[2018-11-06 18:11:13.508] [main] [info] update#setState idle
+[2018-11-06 18:11:43.513] [main] [info] update#setState checking for updates
+[2018-11-06 18:11:43.958] [main] [info] update#setState idle
+[2018-11-06 19:11:43.545] [main] [info] update#setState checking for updates
+[2018-11-06 19:11:43.573] [main] [error] Error: net::ERR_INTERNET_DISCONNECTED
+[2018-11-06 19:11:43.573] [main] [info] update#setState idle
+[2018-11-06 20:20:15.811] [main] [info] update#setState checking for updates
+[2018-11-06 20:20:17.580] [main] [info] update#setState idle

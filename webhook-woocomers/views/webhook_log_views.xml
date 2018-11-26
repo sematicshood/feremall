@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+    <!--
+        Sprint Kanban View
+    -->
+    <record id="webhook_log_views" model="ir.ui.view">
+        <field name="name">webhook.log.views</field>
+        <field name="model">feremall.feremall</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_dashboard o_kanban_mobile" js_class="webhook_log">
+                <field name="id"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_webhook_log_views" model="ir.actions.act_window">
+        <field name="name">Woocommerce Log</field>
+        <field name="res_model">webhook.log</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">kanban</field>
+        <field name="view_id" ref="webhook_log_views"/>
+    </record>
+    
+    <menuitem name="Woocommerce Menu" id="webhook-woocomers.menu_1" parent="webhook-woocomers.menu_root"/>
+
+    <menuitem
+            id="menu_webhook_log"
+            parent="webhook-woocomers.menu_1"
+            action="action_webhook_log_views"
+            sequence="1"
+    />
+
+</flectra>

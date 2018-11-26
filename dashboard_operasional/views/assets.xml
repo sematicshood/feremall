@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+    <template id="scrum_assets_backend" name="scrum_enterprise_assets"
+              inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <script
+                    type="text/javascript"
+                    src="/dashboard_operasional/static/src/js/operational_dashboard.js"
+            ></script>
+            <script
+                    type="text/javascript"
+                    src="/dashboard_operasional/static/src/gantt/jquery.ganttView.js"
+            ></script>
+            <script
+                    type="text/javascript"
+                    src="/dashboard_operasional/static/src/codebase/dhtmlxgantt.js"
+            ></script>
+            <script
+                    type="text/javascript"
+                    src="/dashboard_operasional/static/src/codebase/ext/dhtmlxgantt_tooltip.js"
+            ></script>
+            <script
+                    type="text/javascript"
+                    src="/dashboard_operasional/static/src/codebase/ext/dhtmlxgantt_tooltip.js"
+            ></script>
+            <script
+                    type="text/javascript"
+                    src="/dashboard_operasional/static/src/lib_pivot/js/dx.all.js"
+            ></script>
+            <!-- <script
+                    type="text/javascript"
+                    src="/dashboard_operasional/static/src/pivot/pivot.js"
+            ></script> -->
+            <link rel="stylesheet" type="text/less"
+                  href="/dashboard_operasional/static/src/gantt/jquery.ganttView.less"></link>
+            <link rel="stylesheet" type="text/less"
+                href="/dashboard_operasional/static/src/less/operational_dashboard.less"></link>
+            <link rel="stylesheet" type="text/css"
+                href="/dashboard_operasional/static/src/codebase/dhtmlxgantt.css"></link>
+            <link rel="stylesheet" type="text/css"
+                href="/dashboard_operasional/static/src/lib_pivot/css/dx.common.css"></link>
+            <link rel="stylesheet" type="text/css"
+                href="/dashboard_operasional/static/src/lib_pivot/css/dx.light.css"></link>
+            <!-- <link rel="stylesheet" type="text/css"
+                href="/dashboard_operasional/static/src/pivot/pivot.css"></link> -->
+        </xpath>
+    </template>
+
+</flectra>

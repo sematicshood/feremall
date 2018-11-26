@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+    <!--
+        Sprint Kanban View
+    -->
+    <record id="view_product_sync" model="ir.ui.view">
+        <field name="name">product_sync.dashboard.kanban</field>
+        <field name="model">feremall.feremall</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_dashboard o_kanban_mobile" js_class="product_sync">
+                <field name="id"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_view_product_sync" model="ir.actions.act_window">
+        <field name="name">Product Sync</field>
+        <field name="res_model">webhook.log</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">kanban</field>
+        <field name="view_id" ref="view_product_sync"/>
+    </record>
+
+    <!-- Top menu item -->
+    
+    <menuitem name="Woocommerce" id="webhook-woocomers.menu_root"/>
+   
+    <!-- menu categories -->
+    
+    <menuitem name="Woocommerce Menu" id="webhook-woocomers.menu_1" parent="webhook-woocomers.menu_root"/>
+
+    <menuitem
+            id="menu_tes"
+            parent="webhook-woocomers.menu_1"
+            action="action_view_product_sync"
+            sequence="1"
+    />
+
+</flectra>

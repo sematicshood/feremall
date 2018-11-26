@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template xml:space="preserve">
+	<div t-name="LibraryDashboard">
+		<div class="container">
+
+			<div class="card-lb col-md-6" 
+			     data-title="Hello Gan" 
+				 data-chart="pie"
+				 data-canvas="example"></div>
+
+			<div class="card-lb col-md-6" 
+			     data-title="Hello Gan" 
+				 data-chart="horizontalBar"
+				 data-option="{'stack': true, 'title': 'Hello gays'}"
+				 data-canvas="example_pie"></div>
+
+			<div class="card-lb col-md-6" 
+			     data-title="Hello Gan" 
+				 data-chart="doughnut"
+				 data-canvas="example_two"></div>
+		</div>
+	</div>
+</template>

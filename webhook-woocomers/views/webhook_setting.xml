@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+    <data>
+        <record id="setting_webhook" model="ir.ui.view">
+            <field name="name">webhook.setting.form</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_form"></field>
+            <field name="arch" type="xml">
+                <xpath expr="//form/sheet/notebook/page/group" position="after">
+                    <group name="webhook">
+                        <field name="woocommerce_url" placeholder="woocommerce url"></field>
+                        <field name="consumer_key" placeholder="consumer key"></field>
+                        <field name="consumer_secret" placeholder="consumer secret"></field>
+                        <field name="host" placeholder="host apps"></field>
+                        <field name="email_login" placeholder="email login user"></field>
+                        <field name="password_login" placeholder="password login user"></field>
+                        <field name="database" placeholder="database yang digunakan"></field>
+                        <field name="branch_id" placeholder="branch yang digunakan untuk woocommerce"></field>
+                        <field name="team_id" placeholder="team yang digunakan untuk woocommerce"></field>
+                        <field name="user_id" placeholder="user yang digunakan untuk woocommerce"></field>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</flectra>

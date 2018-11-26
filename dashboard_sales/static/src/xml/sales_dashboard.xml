@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template xml:space="preserve">
+	<div t-name="SalesDashboard"  class="custom-bg mb8">
+		<div class="container">
+			<div class="row mt32 mb32 mr0 ml0">
+				<div class="col-md-12 atas filter">
+					<div class="panel col-md-3">
+						<div class="panel-header">
+							<h3>Branch</h3>
+						</div>
+						<div class="panel-body">
+							<select id="filter_branch" class="form-control"></select>
+						</div>
+					</div>
+					<div class="panel col-md-3">
+						<div class="panel-header">
+							<h3>Tahun</h3>
+						</div>
+						<div class="panel-body">
+							<select id="filter_tahun" class="form-control">
+								<option value="2018">2018</option>
+								<option value="2017">2017</option>
+								<option value="2016">2016</option>
+							</select>
+						</div>
+					</div>
+					<div class="panel col-md-3">
+						<div class="panel-header">
+							<h3>Quarters</h3>
+						</div>
+						<div class="panel-body">
+							<select id="filter_qtr" class="form-control">
+								<option selected="selected" id="qtr_def" value="">-- Pilih Quarter --</option>
+								<option value="1">Qtr1</option>
+								<option value="2">Qtr2</option>
+								<option value="3">Qtr3</option>
+								<option value="4">Qtr4</option>
+							</select>
+						</div>
+					</div>
+					<div class="panel col-md-3">
+						<div class="panel-header">
+							<h3>Bulan</h3>
+						</div>
+						<div class="panel-body">
+							<select id="filter_bulan" class="form-control">
+								<option selected="selected" id="month_def" value="">-- Pilih Bulan --</option>
+								<option value="1">Jan</option>
+								<option value="2">Feb</option>
+								<option value="3">Mar</option>
+								<option value="4">Apr</option>
+								<option value="5">Mei</option>
+								<option value="6">Jun</option>
+								<option value="7">Jul</option>
+								<option value="8">Agu</option>
+								<option value="9">Sep</option>
+								<option value="10">Okt</option>
+								<option value="11">Nov</option>
+								<option value="12">Des</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="row atas">
+					<!-- <div class="custom-card-lb col-md-6 col-sm-12" 
+						data-title="Total Sales Produk" 
+						data-chart1="pie"
+						data-chart2="pie"
+						data-canvas1="total_sales_product_chart"
+						data-canvas2="total_margin_chart"></div> -->
+					<!-- <div class="row-horizon card-custom col-md-7 col-xs-12">
+						<h1 class="title">Total Sales Produk &amp; Total Margin</h1>	 
+						<div class="content">
+							<div class="row">
+								<div class="canvas-content col-md-6 col-xs-12" style="padding:0px;">
+									<canvas class="card-lb" id="total_sales_product_chart" data-chart="pie" data-canvas="total_sales_product_chart"></canvas>
+								</div>
+								<div class="canvas-content col-md-6 col-xs-12" style="padding:0px;">
+									<canvas class="card-lb" id="total_margin_chart" data-chart="pie" data-canvas="total_margin_chart"></canvas>
+								</div>
+							</div>
+							<div class="action-content">
+								<input type="text" data-index="1" data-index1="1" data-index2="2" class="custom-action-date" id="datepicker-cobaa" data-chart2="pie" data-canvas2="total_margin_chart" data-chart1="pie" data-canvas1="total_sales_product_chart"/>
+							</div>
+						</div>
+					</div> -->
+
+					<div class="row-horizon pie_chart_custom card-lb col-md-6 col-xs-12" 
+						data-title="Total Margin" 
+						data-chart="pie"
+						data-option="{'stack': true, 'title': ''}"
+						data-canvas="total_margin_sales_chart"></div>
+
+					<!-- <div class="card-lb col-md-6 col-sm-12" 
+						data-title="Total Sales Produk" 
+						data-chart="pie"
+						data-canvas="total_sales_product_chart"></div>
+					<div class="card-lb col-md-6 col-sm-12" 
+						data-title="Total Margin" 
+						data-chart="pie"
+						data-canvas="total_margin_chart"></div> -->
+
+					<div class="row-horizon card-lb col-md-6 col-xs-12" 
+						data-title="Total Sales Group Produk" 
+						data-chart="doughnut"
+						data-option="{'stack': true, 'title': ''}"
+						data-canvas="total_sales_group_product_chart"></div>									
+
+					<div class="row-horizon bar_chart card-lb col-md-12 col-xs-12" 
+						data-title="Total 10 Produk Sales" 
+						data-chart="bar"
+						data-option="{'stack': true, 'title': 'Top 10 Produk Sales'}"
+						data-canvas="top_product_sales_chart"></div>
+
+					<div class="row-horizon bar_chart card-lb col-md-12 col-xs-12" 
+						data-title="Total 10 Produk Sales By Margin" 
+						data-chart="bar"
+						data-option="{'stack': true, 'title': 'Top 10 Produk Sales By Margin'}"
+						data-canvas="top_product_sales_by_margin_chart"></div>
+				</div>
+			</div>
+
+			
+
+			<!-- <div class="card-lb col-md-6" 
+			     data-title="Hello Gan" 
+				 data-chart="horizontalBar"
+				 data-option="{'stack': true, 'title': 'Hello gays'}"
+				 data-canvas="example_pie"></div>
+			<div class="card-lb col-md-6" 
+			     data-title="Hello Gan" 
+				 data-chart="doughnut"
+				 data-canvas="example_two"></div>
+			
+			<div class="card-lb col-md-6" 
+			     data-title="Hello Test Gan" 
+				 data-chart="bar"
+				 data-option="{'stack': true, 'title': 'Test gays'}"
+				 data-canvas="example_three"></div> -->
+		</div>
+	</div>
+</template>

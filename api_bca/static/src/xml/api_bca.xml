@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template xml:space="preserve">
+	<div t-name="ApiBca">
+		<div class="container">
+			<div class="col-xs-4">
+				<span>Name Account</span>
+				<select class="form-control" id="bank_content"></select>
+			</div>
+			<div class="col-xs-2">
+				<span>Periode Date</span>
+				<br/>
+				<input type="text" class="date form-control"/>
+			</div>
+			<div class="col-xs-4">
+				<span>Action Button</span><br/>
+				<button id="search" class="btn btn-primary">Search Transaction</button>
+				<button id="reset" class="btn btn-danger">Reset</button>
+			</div>
+
+			<br/>
+			<hr/>
+			<br/>
+
+			<div class="col-xs-12">
+				<table class="table table-hover" id="balance">
+					<thead id="head-table">
+						
+					</thead>
+					<tbody id="table-balance">
+						
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</template>

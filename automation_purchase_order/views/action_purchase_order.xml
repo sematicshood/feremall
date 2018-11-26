@@ -1,0 +1,14 @@
+<flectra>
+    <data noupdate="0">
+        <record id="id_automated_server_action" model="base.automation">
+            <field name="name">Automation System: Add Followers Confirm Order</field>
+            <field name="model_id" ref="purchase.model_purchase_order"/>
+            <field name="active">1</field>
+            <field name="trigger">on_create</field>
+            <field name="state">code</field>
+            <field name="code">
+                action = model.notify_to_purchasing(record)
+            </field>
+        </record>
+    </data>
+</flectra>

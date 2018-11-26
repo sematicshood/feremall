@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template xml:space="preserve">
+	<div t-name="ProductSync">
+		<div class="container">
+			<table class="table table-hover" id="table">
+				<thead>
+					<tr>
+						<th>No</th>
+						<th>Name</th>
+						<th>Code</th>
+						<th>Category</th>
+						<th>Price</th>
+						<th>Sync</th>
+					</tr>
+				</thead>
+				<tbody id="table-product">
+					
+				</tbody>
+			</table>
+		</div>
+	</div>
+</template>

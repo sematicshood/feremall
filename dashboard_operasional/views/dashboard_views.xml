@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+    <!--
+        Sprint Kanban View
+    -->
+    <record id="view_operational_dashboard" model="ir.ui.view">
+        <field name="name">operational.dashboard.kanban</field>
+        <field name="model">feremall.feremall</field>
+        <field name="arch" type="xml">
+            <kanban class="operasional_kanban o_kanban_dashboard o_kanban_mobile" js_class="operational_dashboard">
+                <field name="id"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_view_operational" model="ir.actions.act_window">
+        <field name="name">Operational Dashboard</field>
+        <field name="res_model">feremall.feremall</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">kanban</field>
+        <field name="view_id" ref="view_operational_dashboard"/>
+    </record>
+
+    <menuitem
+            id="menu_tes"
+            parent="feremall.menu_1"
+            action="action_view_operational"
+            sequence="1"
+    />
+
+</flectra>

@@ -1,0 +1,3 @@
+Starting Jedi Python language engine.
+----------Generating Tags----------
+ctags --options=/root/.vscode/extensions/ms-python.python-2018.10.0/resources/ctagOptions --languages=Python --exclude=**/site-packages/** -o /home/bima/flectra-dev/addons/.vscode/tags .

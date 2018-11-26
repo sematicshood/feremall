@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+    <!--
+        Sprint Kanban View
+    -->
+    <record id="view_library_dashboard" model="ir.ui.view">
+        <field name="name">library.dashboard.kanban</field>
+        <field name="model">feremall.feremall</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_dashboard o_kanban_mobile" js_class="library_dashboard">
+                <field name="id"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_view_library" model="ir.actions.act_window">
+        <field name="name">Library Dashboard</field>
+        <field name="res_model">feremall.feremall</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">kanban</field>
+        <field name="view_id" ref="view_library_dashboard"/>
+    </record>
+
+    <menuitem
+            id="menu_tes"
+            parent="feremall.menu_1"
+            action="action_view_library"
+            sequence="1"
+    />
+
+</flectra>

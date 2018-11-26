@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template xml:space="preserve">
+	<div t-name="MarketingDashboard" class="custom-bg mb8">
+		<div class="container">
+			<div class="row mt32 mb32 mr0 ml0">
+				<div class="col-md-12 atas filter">
+					<div class="panel col-md-4">
+						<div class="panel-header">
+							<h3>Branch</h3>
+						</div>
+						<div class="panel-body">
+							<select id="filter_branch" class="form-control"></select>
+						</div>
+					</div>
+					<div class="panel col-md-2">
+						<div class="panel-header">
+							<h3>Tahun</h3>
+						</div>
+						<div class="panel-body">
+							<select id="filter_tahun" class="form-control">
+								<option value="2018">2018</option>
+								<option value="2017">2017</option>
+								<option value="2016">2016</option>
+							</select>
+						</div>
+					</div>
+					<div class="panel col-md-2">
+						<div class="panel-header">
+							<h3>Quarters</h3>
+						</div>
+						<div class="panel-body">
+							<select id="filter_qtr" class="form-control">
+								<option selected="selected" id="qtr_def" value="">-- Pilih Quarter --</option>
+								<option value="1">Qtr1</option>
+								<option value="2">Qtr2</option>
+								<option value="3">Qtr3</option>
+								<option value="4">Qtr4</option>
+							</select>
+						</div>
+					</div>
+					<div class="panel col-md-2">
+						<div class="panel-header">
+							<h3>Bulan</h3>
+						</div>
+						<div class="panel-body">
+							<select id="filter_bulan" class="form-control">
+								<option selected="selected" id="month_def" value="">-- Pilih Bulan --</option>
+								<option value="1">Jan</option>
+								<option value="2">Feb</option>
+								<option value="3">Mar</option>
+								<option value="4">Apr</option>
+								<option value="5">Mei</option>
+								<option value="6">Jun</option>
+								<option value="7">Jul</option>
+								<option value="8">Agu</option>
+								<option value="9">Sep</option>
+								<option value="10">Okt</option>
+								<option value="11">Nov</option>
+								<option value="12">Des</option>
+							</select>
+						</div>
+					</div>
+					<div class="panel col-md-2">
+						<div class="panel-header">
+							<h3>Bagi</h3>
+						</div>
+						<div class="panel-body">
+							<select id="separate" class="form-control">
+								<option value="1">K</option>
+								<option value="2">M</option>
+								<option value="3">B</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-12 atas">
+					<div class="col-md-5 col-sm-12 ratio">
+						<div class="col-md-4">
+							<div class="panel boxed l">
+								<div class="panel-header">
+									<h3>Lead</h3>
+								</div>
+								<div class="panel-body">
+									<br/>
+									<h6 id="all"></h6>
+									<h6 id="alls"></h6>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-8 col-sm-12">
+							<div class="panel boxed">
+								<div class="panel-header">
+									<h3>Ratio</h3>
+								</div>
+								<div class="panel-body">
+									<div class="item-ratio win">
+										<h6>Win</h6>
+										<h6 id="win-total"></h6>
+										<h6 id="win-deals"></h6>
+									</div>
+
+									<div class="item-ratio lead">
+										<h6>Pending</h6>
+										<h6 id="lead-total"></h6>
+										<h6 id="lead-deals"></h6>
+									</div>
+
+									<div class="item-ratio lost">
+										<h6>Lost</h6>
+										<h6 id="lost-total"></h6>
+										<h6 id="lost-deals"></h6>
+									</div>
+
+									<div class="item-ratio opportunity">
+										<h6>Opportuniy</h6>
+										<h6 id="opportunity-total"></h6>
+										<h6 id="opportunity-deals"></h6>
+									</div>
+									<canvas id="ratio" width="250" height="130"></canvas>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3 col-sm-12">
+						<div class="panel boxed">
+							<div class="panel-header">
+								<h3>Forecasted Sales</h3>
+							</div>
+							<div class="panel-body">
+								<canvas id="forecasted" width="220" height="240"></canvas>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3 col-sm-12 lost-reason">
+						<div class="panel boxed">
+							<div class="panel-header">
+								<h3>Lost Reason</h3>
+							</div>
+							<div class="panel-body">
+								<canvas id="lost_reason" height="240"></canvas>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-12 atas">
+					<div class="col-md-6 col-sm-12">
+						<div class="panel boxed box-s">
+							<div class="panel-header">
+								<h3>Stages Breakdown</h3>
+								
+								<span>Win</span>
+								<div class="box win"></div>
+								
+								<span>Lead</span>
+								<div class="box lead"></div>
+								
+								<span>Lost</span>
+								<div class="box lost"></div>
+								
+								<span>Opportunity</span>
+								<div class="box opportunity"></div>
+							</div>
+							<div class="panel-body">
+								<canvas id="stages" width="500" height="240"></canvas>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 col-sm-12">
+						<div class="panel boxed box-s">
+							<div class="panel-header">
+								<h3>Expected Sales By Month</h3>
+
+								<span>Amount</span>
+								<div class="box expected_sales"></div>
+							</div>
+							<div class="panel-body">
+								<canvas id="expected_sales" width="500" height="240"></canvas>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-md-12 atas">
+					<div class="col-md-6 col-sm-12">
+						<div class="panel boxed box-s">
+							<div class="panel-header">
+								<h3>by Person - Won Deals</h3>
+
+								<span>Amount</span>
+								<div class="box person_win"></div>
+							</div>
+							<div class="panel-body">
+								<canvas id="person_win" width="500" height="240"></canvas>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="panel boxed box-s">
+							<div class="panel-header">
+								<h3>by Month - Won Deals</h3>
+
+								<span>Amount</span>
+								<div class="box month_win"></div>
+							</div>
+							<div class="panel-body">
+								<canvas id="month_win" width="500" height="240"></canvas>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
