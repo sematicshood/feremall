@@ -35,22 +35,31 @@ class Sprint(http.Controller):
                 else:
                     option.append(('create_date', '<', '{}-{}-1'.format(year, next_m)))
 
-        print(option)
-
         projects    = request.env['project.project'].search(option)
 
         data        = []
 
         for project in projects:
             if param.get('project') == 'active':
-                tasks = request.env["project.task"].search([('project_id', '=', project.id), ('date_end', '!=', False), ('active', '=', True)])
+                tasks = request.env["project.task"].search([('project_id', '=', project.id), ('date_deadline', '!=', False), ('active', '=', True)])
             else:
-                tasks = request.env["project.task"].search([('project_id', '=', project.id), ('date_end', '!=', False)])
+                tasks = request.env["project.task"].search([('project_id', '=', project.id), ('date_deadline', '!=', False)])
                 
             task_all    = []
 
             for task in tasks:
-                task_all.append({ 'id': task.id, 'parent_id': project.id, 'name': task.name, 'start': task.date_start, 'end': task.date_end, 'bobot': task.planned_hours, 'bobot_undone': task.remaining_hours, 'bobot_done': task.effective_hours, 'team': task.user_id[0].name if len(task.user_id) > 0 else None, 'percent': task.progress })
+                task_all.append({ 
+                    'id': task.id, 
+                    'parent_id': project.id, 
+                    'name': task.name, 
+                    'start': task.date_start, 
+                    'end': task.date_deadline, 
+                    'bobot': task.planned_hours, 
+                    'bobot_undone': task.remaining_hours, 
+                    'bobot_done': task.effective_hours, 
+                    'team': task.user_id[0].name if len(task.user_id) > 0 else None, 
+                    'percent': task.progress 
+                })
 
             data.append({'id': project.id, 'name': project.name, 'series': task_all })
 

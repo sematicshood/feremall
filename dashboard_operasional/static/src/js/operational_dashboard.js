@@ -107,18 +107,18 @@ flectra.define('operational.dashboard', function(require) {
                 route: '/operational_dashboard',
                 params: {'year': year, vendor: 'active'},}).done(function
             (result) {
-                self.ganttCreate(result)
-                self.pivotCreate(result)
+                self.ganganttCreate(result)
+                self.pipivotCreate(result)
             });
             
             return this.fetch_data().then(function(result) {
-                var tes_dashboard_view = QWeb.render('OperationalDashboard');
+                var operational_dashboard_view = QWeb.render('OperationalDashboard');
                 super_render.call(self);
-                $(tes_dashboard_view).prependTo(self.$el);
+                $(operational_dashboard_view).prependTo(self.$el);
             });
         },
 
-        ganttCreate: function(result) {
+        ganganttCreate: function(result) {
             data    =   []
 
             $.each(result, (i, v) => {
@@ -197,7 +197,7 @@ flectra.define('operational.dashboard', function(require) {
             });
         },
 
-        pivotCreate: function(result) {
+        pipivotCreate: function(result) {
             var pivotGrid = $("#pivotgrid").dxPivotGrid({
                 allowSortingBySummary: true,
                 allowFiltering: true,
