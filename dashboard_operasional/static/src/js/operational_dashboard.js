@@ -141,7 +141,7 @@ flectra.define('operational.dashboard', function(require) {
                         "bobot_done": w['bobot_done'],
                         "bobot_undone": w['bobot_undone'],
                         "member": w['team'],
-                        "progress": `${ w['percent'] / 100 }`,
+                        "progress": (Number((w['percent'] / 100).toFixed(2))) ? Number((w['percent'] / 100).toFixed(2)) : '',
                         "parent": '0' + w['parent_id'],
                         "open": true,
                     })

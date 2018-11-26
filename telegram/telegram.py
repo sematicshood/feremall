@@ -97,7 +97,7 @@ Check Help Tab for the rest variables.
     def telegram_listener_message(self, messages, bot):
         for tmessage in messages:  # messages from telegram server
             locals_dict = {'telegram': {'tmessage': tmessage}}
-            tsession = self.env['telegram.session'].get_session(tmessage.chat.id)
+            tsession = self.env['telegram.session'].sudo().get_session(tmessage.chat.id)
             cr = self.env.cr
             search_command = tmessage.text
             m = re.match('(/[^ @]*)([^ ]*)(.*)', search_command)
@@ -154,7 +154,7 @@ Check Help Tab for the rest variables.
         if not command:
             _logger.error('Command not found for callback_data %s ', callback_query.data)
             return
-        tsession = self.env['telegram.session'].get_session(callback_query.message.chat.id)
+        tsession = self.env['telegram.session'].sudo().get_session(callback_query.message.chat.id)
         command.execute(tsession, bot, {'telegram': {
             'callback_query': callback_query,
             'callback_data': callback_data,
@@ -318,7 +318,7 @@ Check Help Tab for the rest variables.
         context = {}
         if tsession and tsession.context:
             context = simplejson.loads(tsession.context)
-        base_url = self.env['ir.config_parameter'].get_param('web.base.url', '')
+        base_url = self.env['ir.config_parameter'].sudo().get_param('web.base.url', '')
         locals_dict.update({
             'data': {},
             'options': {
@@ -487,7 +487,7 @@ Check Help Tab for the rest variables.
         if action._name != 'ir.actions.act_window':
             return []
         domain, filters = self.get_action_domain(action)
-        graph_view = self.env[action.res_model].fields_view_get(view_type='graph')['arch']
+        graph_view = self.env[action.res_model].sudo().fields_view_get(view_type='graph')['arch']
         graph_view = etree.fromstring(graph_view)
 
         graph_config = {
@@ -511,7 +511,7 @@ Check Help Tab for the rest variables.
                 graph_config['measure'] = value
                 graph_config['fields'].append(value)
 
-        res = self.env[action.res_model].read_group(
+        res = self.env[action.res_model].sudo().read_group(
             domain,
             fields=graph_config['fields'],
             groupby=graph_config['row'],
@@ -582,7 +582,7 @@ Check Help Tab for the rest variables.
     def get_action_domain(self, action):
         used_filters = []
         eval_vars = {'uid': self.env.uid}
-        filters = self.env['ir.filters'].get_filters(action.res_model, action.id)
+        filters = self.env['ir.filters'].sudo().get_filters(action.res_model, action.id)
         personal_filter = None
 
         # get_default_filter function from js:
@@ -605,7 +605,7 @@ Check Help Tab for the rest variables.
             # find filter from context, i.e. the same as UI works
             default_domains = []
             # parse search view
-            search_view = self.env[action.res_model].fields_view_get(view_id=action.search_view_id.id, view_type='search')['arch']
+            search_view = self.env[action.res_model].sudo().fields_view_get(view_id=action.search_view_id.id, view_type='search')['arch']
             search_view_filters = {}
             for el in etree.fromstring(search_view):
                 if el.tag != 'filter':
@@ -634,14 +634,14 @@ Check Help Tab for the rest variables.
     def action_update_cache(self):
         # Called by ir.actions.server
         context = self._context
-        cacheable_commands = self.env['telegram.command'].search([('model_ids.model', '=', context['active_model']), ('type', '=', 'cacheable')])
+        cacheable_commands = self.env['telegram.command'].sudo().search([('model_ids.model', '=', context['active_model']), ('type', '=', 'cacheable')])
         if len(cacheable_commands):
             _logger.debug('update_cache_bus_message(): commands will got cache update:')
             _logger.debug(cacheable_commands)
             message = {
                 'action': 'update_cache',
                 'command_ids': cacheable_commands.ids}
-            self.env['telegram.bus'].sendone(message)
+            self.env['telegram.bus'].sudo().sendone(message)
 
     @api.model
     def action_handle_subscriptions(self, id_or_xml_id=None):
@@ -652,10 +652,10 @@ Check Help Tab for the rest variables.
             if not isinstance(id_or_xml_id, (int, long)):
                 subscription_commands = self.env.ref(id_or_xml_id)
             else:
-                subscription_commands = self.env['telegram.command'].browse(id_or_xml_id)
+                subscription_commands = self.env['telegram.command'].sudo().browse(id_or_xml_id)
         else:
             # Called by base.action.rule via ir.actions.server
-            subscription_commands = self.env['telegram.command'].search([('model_ids.model', '=', context['active_model']), ('type', '=', 'subscription')])
+            subscription_commands = self.env['telegram.command'].sudo().search([('model_ids.model', '=', context['active_model']), ('type', '=', 'subscription')])
         _logger.debug('subscription_commands %s' % [c.name for c in subscription_commands])
         event = dict((k, context.get(k)) for k in ['active_model', 'active_id', 'active_ids'])
         subscription_commands.send_notifications(event=event)
@@ -668,7 +668,7 @@ Check Help Tab for the rest variables.
                 response = command.get_response()
                 bot.cache.set_value(command, response)
             else:
-                res = self.env['telegram.session'].search([('user_id.groups_ids', 'in', command.group_ids.ids)])
+                res = self.env['telegram.session'].sudo().search([('user_id.groups_ids', 'in', command.group_ids.ids)])
                 for tsession in res:
                     response = command.get_response(tsession=tsession)
                     bot.cache.set_value(command, response, tsession)
@@ -691,14 +691,14 @@ Check Help Tab for the rest variables.
             'tsession_ids': tsession and tsession.ids,
             'command_ids': self.ids,
         }
-        self.env['telegram.bus'].sendone(message)
+        self.env['telegram.bus'].sudo().sendone(message)
 
     def _send_notifications(self, bus_message, bot):
         _logger.debug('send_notifications(). bus_message=%s', bus_message)
         tsession = None
         if bus_message.get('tsession_ids'):
-            tsession = self.env['telegram.session'].browse(bus_message.get('tsession_ids'))
-        for command in self.env['telegram.command'].browse(bus_message['command_ids']):
+            tsession = self.env['telegram.session'].sudo().browse(bus_message.get('tsession_ids'))
+        for command in self.env['telegram.command'].sudo().browse(bus_message['command_ids']):
             locals_dict = command.eval_notification(bus_message.get('event'), tsession)
 
             if command.type == 'subscription':
@@ -706,7 +706,7 @@ Check Help Tab for the rest variables.
                 if 'notify_user_ids' in locals_dict['options']:
                     notify_user_ids = notify_user_ids.intersection(set(locals_dict['options'].get('notify_user_ids', [])))
 
-                notify_sessions = self.env['telegram.session'].search([('user_id', 'in', list(notify_user_ids))])
+                notify_sessions = self.env['telegram.session'].sudo().search([('user_id', 'in', list(notify_user_ids))])
 
             else:
                 notify_sessions = tsession
@@ -744,13 +744,13 @@ Check Help Tab for the rest variables.
             'user_id': user.id,
             'command_ids': self.ids,
         }
-        self.env['telegram.bus'].sendone(message)
+        self.env['telegram.bus'].sudo().sendone(message)
         return True
 
     @api.model
     def execute_emulated_request(self, bus_message, bot):
         for command in self.browse(bus_message['command_ids']):
-            tsession = self.env['telegram.session'].search([('user_id', '=', bus_message['user_id'])])
+            tsession = self.env['telegram.session'].sudo().search([('user_id', '=', bus_message['user_id'])])
             if not tsession or not tsession.chat_ID:
                 return False
             command.execute(tsession, bot)
@@ -765,7 +765,7 @@ class IrConfigParameter(models.Model):
         _logger.debug('telegram_proceed_ir_config')
         message = {}
         active_id = self._context['active_id']
-        parameter = self.env['ir.config_parameter'].browse(active_id)
+        parameter = self.env['ir.config_parameter'].sudo().browse(active_id)
         _logger.debug('parameter = %s' % parameter)
         if parameter.key == 'telegram.token':
             message['action'] = 'token_changed'
@@ -775,7 +775,7 @@ class IrConfigParameter(models.Model):
             message['action'] = 'telegram_threads_changed'
         if message:
             message['dbname'] = self._cr.dbname
-            self.env['telegram.bus'].sendone(message)
+            self.env['telegram.bus'].sudo().sendone(message)
 
 
 class TelegramSession(models.Model):
@@ -803,9 +803,9 @@ class TelegramSession(models.Model):
 
     @api.model
     def get_session(self, chat_ID):
-        tsession = self.env['telegram.session'].search([('chat_ID', '=', chat_ID)])
+        tsession = self.env['telegram.session'].sudo().search([('chat_ID', '=', chat_ID)])
         if not tsession:
-            tsession = self.env['telegram.session'].create({'chat_ID': chat_ID})
+            tsession = self.env['telegram.session'].sudo().create({'chat_ID': chat_ID})
         return tsession
 
 

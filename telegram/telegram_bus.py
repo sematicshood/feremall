@@ -105,7 +105,7 @@ class TelegramBus(models.Model):
         if result or force_status:
             partner_ids = options.get('bus_presence_partner_ids')
             if partner_ids:
-                partners = self.env['res.partner'].browse(partner_ids)
+                partners = self.env['res.partner'].sudo().browse(partner_ids)
                 result += [{
                     'id': -1,
                     'channel': (self._cr.dbname, 'bus.presence'),
