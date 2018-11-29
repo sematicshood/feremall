@@ -189,15 +189,19 @@ Check Help Tab for the rest variables.
     @api.multi
     def inline_keyboard_buttons(self, options, buttons, row_width=None):
         self.ensure_one()
+        print('='*10)
+        print(options)
 
         if 'reply_markup' not in options:
             options['reply_markup'] = types.InlineKeyboardMarkup()
 
         row = []
         for b in buttons:
+            print('='*10)
             b = b.copy()
             callback_data = b.get('callback_data') or {}
             b['callback_data'] = self._encode_callback_data(callback_data)
+            print(types.InlineKeyboardButton(**b).__dict__)
             row.append(types.InlineKeyboardButton(**b))
 
         return self._add_row_to_keyboard(options, row, row_width)
@@ -393,7 +397,7 @@ Check Help Tab for the rest variables.
                 f = photo['data']
             else:
                 # type is 'base64' by default
-                f = io.StringIO(base64.b64decode(photo['data']))
+                f = io.BytesIO(base64.b64decode(photo['data']))
                 f.name = photo.get('filename', 'item.png')
             res['photos'].append({'file': f})
 

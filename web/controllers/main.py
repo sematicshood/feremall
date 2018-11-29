@@ -30,6 +30,7 @@ from collections import OrderedDict
 from werkzeug.urls import url_decode, iri_to_uri
 from xml.etree import ElementTree
 import unicodedata
+from werkzeug import utils
 
 
 import flectra
@@ -483,6 +484,7 @@ class Home(http.Controller):
     @http.route('/web/login', type='http', auth="none", sitemap=False)
     def web_login(self, redirect=None, **kw):
         ensure_db()
+        
         request.params['login_success'] = False
         if request.httprequest.method == 'GET' and redirect and request.session.uid:
             return http.redirect_with_hash(redirect)
@@ -491,6 +493,12 @@ class Home(http.Controller):
             request.uid = flectra.SUPERUSER_ID
 
         values = request.params.copy()
+
+        if request.session.get('error') == 'true':
+            values['error'] = _("Wrong login/password")
+
+        request.session['error'] = 'false'
+        
         try:
             values['databases'] = http.db_list()
         except flectra.exceptions.AccessDenied:
@@ -504,6 +512,8 @@ class Home(http.Controller):
                 return http.redirect_with_hash(self._login_redirect(uid, redirect=redirect))
             request.uid = old_uid
             values['error'] = _("Wrong login/password")
+            request.session['error'] = 'true'
+            return utils.redirect('/web')
         else:
             if 'error' in request.params and request.params.get('error') == 'access':
                 values['error'] = _('Only employee can access this database. Please contact the administrator.')

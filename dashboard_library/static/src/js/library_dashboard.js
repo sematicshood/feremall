@@ -16,14 +16,16 @@ function create_chart(ctx, datasets, labels, index, chart, option = {}) {
     let stack   =   false,
         title   =   {
             display: false,
-            text: 'Library Dashboard'
         }
     
     if(option[0] != undefined) {
         stack           =   option[0].stack || stack
-        title           =   {
-            display: true,
-            text: option[0].title
+
+        if(option[0].title.length > 0) {
+            title           =   {
+                display: true,
+                text: option[0].title
+            }
         }
     }
 
@@ -83,6 +85,11 @@ function create_chart(ctx, datasets, labels, index, chart, option = {}) {
                 }
             }
         }
+    }
+
+    if(option[0] != undefined) {
+        if(option[0].rupiah == false)
+            delete options.tooltips
     }
 
     if(chart == 'pie' || chart == 'doughnut') {

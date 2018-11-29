@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
-    "name": """Telegram Expense Manager""",
-    "summary": """Expense Manager Bot""",
+    "name": """Telegram Custom""",
+    "summary": """Bot Custom""",
     "category": "Telegram",
     "images": [],
     "version": "1.0.0",
@@ -11,27 +11,18 @@
     "support": "apps@it-projects.info",
     "website": "https://it-projects.info",
     "license": "LGPL-3",
-    "price": 600.00,
+    "price": 40.00,
     "currency": "EUR",
 
     "depends": [
         "telegram",
-        "telegram_portal",
-        "telegram_chart",
-        "account",
-        "analytic",
-        "l10n_generic_coa",
+        "project",
     ],
     "external_dependencies": {"python": [], "bin": []},
     "data": [
-        "data/telegram_command.xml",
-        "data/account.xml",
-        "data/analytic.xml",
-        "data/cron.xml",
-        "views/schedule.xml",
-        "views/setting.xml",
-        "views/account_account.xml",
-        "security/ir.model.access.csv",
+        "data/today_activity_command.xml",
+        "data/due_activity_command.xml",
+        # "data/ir_cron.xml",
     ],
     "qweb": [
     ],

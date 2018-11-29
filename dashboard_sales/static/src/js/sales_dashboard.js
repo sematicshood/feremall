@@ -12,7 +12,7 @@ function rupiah(bilangan = 0) {
     return rupiah
 }
 
-function create_chart(ctx, datasets, labels, index, chart, option = {}) {
+function create_chart_sales(ctx, datasets, labels, index, chart, option = {}) {
     let stack   =   false,
         title   =   {
             display: false,
@@ -268,7 +268,7 @@ function sales_process_chart(ctx, chart, data, canvas, option) {
         }
     });
     
-    create_chart(ctx, datasets, labels, canvas, chart, option)
+    create_chart_sales(ctx, datasets, labels, canvas, chart, option)
 }
 
 flectra.define('sales.dashboard', function(require) {
