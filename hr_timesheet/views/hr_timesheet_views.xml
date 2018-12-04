@@ -13,7 +13,7 @@
             sequence="5"/>
 
         <!--
-            Timesheet line Views
+            Timesheet line Views 
         -->
         <record id="hr_timesheet_line_tree" model="ir.ui.view">
             <field name="name">account.analytic.line.tree.hr_timesheet</field>
