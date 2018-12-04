@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+<data>
+
+    <record model="telegram.command" id="daily_meeting_comman">
+        <field name="name">/daily_meeting</field>
+        <field name="description">Daily Meeting</field>
+        <field name="type">normal</field>
+        <field name="universal">True</field>
+        <field name="group_ids" eval="[(4, ref('base.group_user'))]" />
+        <field name="response_code">
+            <![CDATA[
+data['project'] = command.meeting(type='daily')
+data['enter']   = "\n"
+            ]]>
+        </field>
+        <field name="response_template" type="xml">
+<t>
+<t>Daily Meeting</t>
+<t t-foreach="data['project']" t-as="p">
+<t>Nama : <t t-esc="p['name']"/>
+Timeshet :
+<t t-foreach="p['timesheets']" t-as="t"><t t-esc="t_index + 1"/>. <t t-esc="t['name']"/><t t-if="t_index + 1 != len(p['timesheets'])"><t t-esc="data['enter']"/></t></t>
+</t>
+</t>
+</t>
+        </field>
+    </record>
+
+    <record model="telegram.command" id="weekly_meeting_comman">
+        <field name="name">/weekly_meeting</field>
+        <field name="description">Weekly Meeting</field>
+        <field name="type">normal</field>
+        <field name="universal">True</field>
+        <field name="group_ids" eval="[(4, ref('base.group_user'))]" />
+        <field name="response_code">
+            <![CDATA[
+data['project'] = command.meeting(type='weekly')
+data['enter']   = "\n"
+            ]]>
+        </field>
+        <field name="response_template" type="xml">
+<t>
+<t>Weekly Meeting</t>
+<t t-foreach="data['project']" t-as="p">
+<t>Nama : <t t-esc="p['name']"/>
+Timeshet :
+<t t-foreach="p['timesheets']" t-as="t"><t t-esc="t_index + 1"/>. <t t-esc="t['name']"/><t t-if="t_index + 1 != len(p['timesheets'])"><t t-esc="data['enter']"/></t></t>
+</t>
+</t>
+</t>
+        </field>
+    </record>
+
+</data>
+</flectra>

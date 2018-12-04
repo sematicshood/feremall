@@ -49,3 +49,30 @@ class TelegramCommand(models.Model):
             data.append({ 'name': p.name, 'description': self.cleanhtml(p.description), 'date_deadline': p.date_deadline, 'user': p.user_id[0].name })
 
         return data
+
+    @api.model
+    def meeting(self, type = None):
+        users   =   self.env['res.users'].search([])
+        data    =   []
+
+        for user in users:
+            option      =   [('user_id', '=', user.id)]
+
+            if type == 'daily':
+                option.append(('date', '=', (datetime.now()).strftime('%Y-%m-%d')))
+            elif type == 'weekly':
+                option.append(('date', '<=', (datetime.now()).strftime('%Y-%m-%d')))
+                option.append(('date', '>', (datetime.now() - timedelta(days=7)).strftime('%Y-%m-%d')))
+
+            timesheets  =   self.env['account.analytic.line'].search(option)
+            timesheet   =   []
+
+            for t in timesheets:
+                timesheet.append({
+                    'name': t.name
+                })
+
+            if len(timesheets) > 0:
+                data.append({ 'name': user.name, 'timesheets': timesheet})
+
+        return data

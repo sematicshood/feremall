@@ -22,6 +22,7 @@
     "data": [
         "data/today_activity_command.xml",
         "data/due_activity_command.xml",
+        "data/meeting_command.xml",
         # "data/ir_cron.xml",
     ],
     "qweb": [

@@ -8,7 +8,6 @@ from datetime import timedelta, datetime
 class Sprint(http.Controller):
     def option(self, param, custom = None, type = None):
         option      =   []
-        print('='*20)
         id_user     =   http.request.env.context.get('uid')
         manager     =   request.env['res.groups'].search([('name','=','Manager'), ('category_id.name', '=', 'Project')])
         is_manager  =   False
@@ -64,7 +63,8 @@ class Sprint(http.Controller):
     @http.route('/operational_dashboard/cek_manager', type='json', auth='user')    
     def cek_m(self):
         id_user     =   http.request.env.context.get('uid')
-        manager     =   request.env['res.groups'].search([('name','=','Manager'), ('category_id.name', '=', 'Project')])
+        # manager     =   request.env['res.groups'].search([('name','=','Manager'), ('category_id.name', '=', 'Project')])
+        manager     =   request.env['res.groups'].search([('name','=','Manajer'), ('category_id.name', '=', 'Proyek')])
         is_manager  =   False
 
         for t in manager.users:
@@ -78,7 +78,8 @@ class Sprint(http.Controller):
             data    =   []
 
             for user in users:
-                data.append({ 'id': user.id, 'nama': user.name })
+                if user.login.split('_')[0] != 'telegram':
+                    data.append({ 'id': user.id, 'nama': user.name })
 
             return data
 
@@ -107,17 +108,152 @@ class Sprint(http.Controller):
 
         return data
 
+    @http.route('/library_dashboard/timesheet_project', type='json', auth='user')    
+    def timesheet_project(self, **param):
+        labels  =   []
+        y       =   int(param.get('year'))
+        m       =   int(param.get('month'))
+        d       =   1
+        
+        if param.get('id'):
+            id_s    =   int(param.get('id'))
+        else:
+            return False
+
+        user    =   request.env['res.users'].search([('id', '=', id_s)])
+        val     =   []
+        
+        if m == 12:
+            mn = m
+            dn = 31
+        else:
+            mn = m + 1
+            dn = 1
+    
+        start = datetime.strptime("{}-{}-{}".format(y,m,d), "%Y-%m-%d")
+        end = datetime.strptime("{}-{}-{}".format(y,mn,dn), "%Y-%m-%d")
+        date_array = \
+            (start + timedelta(days=x) for x in range(0, (end-start).days))
+
+        for date_object in date_array:
+            timesheets = request.env['account.analytic.line'].search([('user_id', '=', id_s), ('date', '=', date_object)])
+            total_t    = 0
+
+            for timesheet in timesheets:
+                total_t += timesheet.unit_amount
+            
+            val.append(total_t)
+
+            date_day    =   date_object.strftime("%d")
+            labels.append(int(date_day))
+
+        data            =   []
+
+        value = [{ user[0].name: val }]
+
+        data.append({
+            'labels': labels, 
+            'value': value,
+            'start': "{}-{}-{}".format(y,m,d),
+            'end': "{}-{}-{}".format(y,mn,dn)
+        })
+
+        return data 
+
     @http.route('/operational_dashboard/projects', type='json', auth='user')
     def project(self, **param):
         option      =   self.option(param)
         data        =   []
-        print(option)
 
         projects    =   request.env['project.project'].search(option)
-        print(projects)
 
         for project in projects:
             data.append({ 'name': project[0].name, 'id': project[0].id })
+
+        return data
+
+    @http.route('/operational_dashboard/users', type='json', auth='user')
+    def users(self, **param):
+        data                =   {}
+        projectes           =   []
+
+        y       =   int(param.get('year'))
+        m       =   int(param.get('month'))
+        d       =   1
+        
+        if m == 12:
+            mn = m
+            dn = 31
+        else:
+            mn = m + 1
+            dn = 1
+
+        start = "{}-{}-{}".format(d,m,y)
+        end = "{}-{}-{}".format(dn,mn,y)
+
+        users   =   request.env['res.users'].search([])
+        datas    =   []
+
+        for user in users:
+            if user.login.split('_')[0] != 'telegram':
+                datas.append({ 'id': user.id, 'name': user.name })
+
+        data['users']       =   datas
+
+        option      =   self.option(param, type = 'project')
+
+        projects    =   request.env['project.project'].search(option)
+
+        operator    =   '<=' if m == 12 else '<'
+
+        for project in projects:
+            if param.get('project') == 'active':
+                tasks = request.env["project.task"].search([('project_id', '=', project.id), ('active', '=', True)])
+            else:
+                tasks = request.env["project.task"].search([('project_id', '=', project.id)])
+                
+            task_all    = []
+
+            for task in tasks:
+                timesheet_all   =   []
+
+                timesheets      =   request.env['account.analytic.line'].search([('task_id', '=', task.id)])
+
+                for timesheet in timesheets:
+                    timesheet_all.append({
+                        'id': timesheet.id, 
+                        'parent_id': task.id, 
+                        'name': timesheet.name, 
+                        'start': timesheet.date, 
+                        'end': task.date_deadline, 
+                        'bobot': '-', 
+                        'bobot_undone': '-', 
+                        'bobot_done': timesheet.unit_amount, 
+                        'team': timesheet.user_id[0].name if len(timesheet.user_id) > 0 else None,'total': timesheet.unit_amount,
+                        'percent': 100 if timesheet.unit_amount > 0 else 0,    
+                    })
+
+                task_all.append({ 
+                    'id': task.id, 
+                    'parent_id': project.id, 
+                    'name': task.name, 
+                    'start': task.date_start, 
+                    'end': task.date_deadline, 
+                    'bobot': task.planned_hours, 
+                    'bobot_undone': task.remaining_hours, 
+                    'bobot_done': task.effective_hours, 
+                    'team': task.user_id[0].name if len(task.user_id) > 0 else None, 
+                    'percent': task.progress,
+                    'timesheets': timesheet_all
+                })
+
+            print('-'*10)
+            print(len(tasks))
+
+            if len(tasks) > 0:
+                projectes.append({'id': project.id, 'name': project.name, 'series': task_all })
+
+        data['project'] =   projectes
 
         return data
 
@@ -155,7 +291,7 @@ class Sprint(http.Controller):
                         'bobot': '-', 
                         'bobot_undone': '-', 
                         'bobot_done': timesheet.unit_amount, 
-                        'team': timesheet.user_id[0].name if len(timesheet.user_id) > 0 else None, 
+                        'team': timesheet.user_id[0].name if len(timesheet.user_id) > 0 else None,
                         'percent': 100 if timesheet.unit_amount > 0 else 0,    
                     })
 

@@ -24,7 +24,6 @@ var sales = [
     },
     {
         "project": "10250",
-        "vendor": "North",
         "area": "United",
         "item": "New",
         "komponen": "ini komponen",
@@ -69,6 +68,9 @@ flectra.define('operational.dashboard', function(require) {
             'change #filter_tahun': 'change_action',
             'change #filter_users': 'change_action',
             'change .action-date': 'change_action_date',
+            'click .show-grafik': 'load_modal',
+            'change #filter_bulan_task_proyek': 'load_table',
+            'change #filter_tahun_task_proyek': 'load_table',
         }),
 
 
@@ -113,7 +115,6 @@ flectra.define('operational.dashboard', function(require) {
                     $(".users-filter").hide()
 
                 self.ganganttCreate(result['project'])
-                self.pipivotCreate(result['project'])
 
                 let card   = $(".card-lb")
 
@@ -126,34 +127,44 @@ flectra.define('operational.dashboard', function(require) {
                         chart  = t.attr('data-chart'),
                         option  = eval(`new Array(${ t.attr('data-option') })`) || {}
 
-                    $(this).append(`
-                        <h1 class="title">${ title }</h1>	 
-                        <div class="content">
-                            <div>
-                                <div class="col-md-4 center">
-                                    <h4>Total Semua</h4>
-                                    <h4 id="total_semua"></h4>
+                    if(chart != 'line') {
+                        $(this).append(`
+                            <h1 class="title">${ title }</h1>	 
+                            <div class="content">
+                                <div>
+                                    <div class="col-md-4 center">
+                                        <h4>Total Semua</h4>
+                                        <h4 id="total_semua"></h4>
+                                    </div>
+                                    <div class="col-md-4 center">
+                                        <h4>Selesai</h4>
+                                        <h4 id="selesai"></h4>
+                                    </div>
+                                    <div class="col-md-4 center">
+                                        <h4>Belum Selesai</h4>
+                                        <h4 id="belum"></h4>
+                                    </div>
                                 </div>
-                                <div class="col-md-4 center">
-                                    <h4>Selesai</h4>
-                                    <h4 id="selesai"></h4>
+                                <br/>
+                                <hr/>
+                                <br/>
+                                <div class="canvas-content">
+                                    <canvas id="${ canvas }"></canvas>
                                 </div>
-                                <div class="col-md-4 center">
-                                    <h4>Belum Selesai</h4>
-                                    <h4 id="belum"></h4>
+                                <div class="action-content">
+                                    <input type="text" data-index="${ index }" class="action-date" id="datepicker-${ canvas }" data-chart="${ chart }" data-canvas="${ canvas }"/>
                                 </div>
                             </div>
-                            <br/>
-                            <hr/>
-                            <br/>
+                        `)
+                    } else {
+                        $(this).append(`
+                        <div class="content" style="box-shadow: none; margin-bottom: 0;">
                             <div class="canvas-content">
-                                <canvas id="${ canvas }"></canvas>
-                            </div>
-                            <div class="action-content">
-                                <input type="text" data-index="${ index }" class="action-date" id="datepicker-${ canvas }" data-chart="${ chart }" data-canvas="${ canvas }"/>
+                                <canvas id="${ canvas }" data-index="${ index }"></canvas>
                             </div>
                         </div>
                     `)
+                    }
 
                     $(".action-date").daterangepicker({
                         initialText : 'This year',
@@ -164,15 +175,31 @@ flectra.define('operational.dashboard', function(require) {
                      */ 
                     let project    =   $("#filter_project").val() || 'active'
 
-                    self._rpc({
-                        route: `/library_dashboard/${canvas}`,
-                        params: {'year': year, project: project},}).done(function
-                    (result) {
-                        $("#total_semua").html(`${ result[0]['total'] }`)
-                        $("#selesai").html(`${ result[0]['value'][0]['selesai'] }`)
-                        $("#belum").html(`${ result[0]['value'][0]['belum selesai'] }`)
+                    var d = new Date(),
+                        n = d.getMonth(),
+                        y = d.getFullYear();
 
-                        self.load_chart(chart, canvas, result, index, option)
+                    $('#filter_bulan_task_proyek option[value="'+n+'"]').attr('selected', true);
+                    $('#filter_tahun_task_proyek option[value="'+y+'"]').attr('selected', true);
+
+                    if(canvas != 'timesheet_project') {
+                        self._rpc({
+                            route: `/library_dashboard/${canvas}`,
+                            params: {'year': year, project: project},}).done(function
+                        (result) {
+                            $("#total_semua").html(`${ result[0]['total'] }`)
+                            $("#selesai").html(`${ result[0]['value'][0]['selesai'] }`)
+                            $("#belum").html(`${ result[0]['value'][0]['belum selesai'] }`)
+
+                            self.load_chart(chart, canvas, result, index, option)
+                        })
+                    }
+
+                    self._rpc({
+                        route: `/operational_dashboard/users`,
+                        params: {'year': year, project: project, 'month': n},}).done(function
+                    (result) {
+                        self.pipivotCreate(result)
                     })
                 })
             });
@@ -182,6 +209,45 @@ flectra.define('operational.dashboard', function(require) {
                 super_render.call(self);
                 $(operational_dashboard_view).prependTo(self.$el);
             });
+        },
+
+        load_modal: function(e) {
+            let self = this
+
+            n           =   $('#filter_bulan_task_proyek').val();
+            year        =   $('#filter_tahun_task_proyek').val();
+            project     =   $("#filter_project").val() || 'active'
+            id          =   "timesheet_project_id",
+            t           =   $(`#${id}`)
+            canvas      =   t.attr('data-canvas'),
+            chart       =   t.attr('data-chart'),
+            index       =   $(`#${ canvas }`).attr('data-index'),
+            option      =   eval(`new Array(${ t.attr('data-option') })`) || {}
+
+            self._rpc({
+                route: `/library_dashboard/${canvas}`,
+                params: {'year': year, project: project, 'month': n, 'id': e.target.id},}).done(function
+            (result) {
+                console.log(result)
+                $(".modal-title").html(`Periode ${ result[0].start } &#160; sampai dengan &#160; ${ result[0].end }`)
+
+                self.load_chart(chart, canvas, result, index, option)
+            })
+        },
+
+        load_table: function(e) {
+            let self = this
+
+            n           =   $('#filter_bulan_task_proyek').val();
+            year        =   $('#filter_tahun_task_proyek').val();
+            project     =   $("#filter_project").val() || 'active'
+
+            self._rpc({
+                route: `/operational_dashboard/users`,
+                params: {'year': year, project: project, 'month': n},}).done(function
+            (result) {
+                self.pipivotCreate(result)
+            })
         },
 
         cek_manager: function() {
@@ -333,6 +399,97 @@ flectra.define('operational.dashboard', function(require) {
         },
 
         pipivotCreate: function(result) {
+            fields  =   [{
+                            caption: "Project",
+                            width: 120,
+                            dataField: "project",
+                            area: "row",
+                        },{
+                            caption: "Task",
+                            width: 120,
+                            dataField: "task",
+                            area: "row",
+                        },{
+                            caption: "Total",
+                            dataField: "total",
+                            dataType: "number",
+                            summaryType: "sum",
+                            area: "data"
+                        }]
+
+            _users  =   []
+
+            $(".show-grafik").remove()
+            $(".show-grafika").remove()
+            $(".item-table").remove()
+
+            $.each(result['users'], (i,v) => {
+                $("#users_project").append(`
+                    <th class="show-grafik" id="${ v['id'] }" data-toggle="modal" data-target="#myModal">${ v['name'] }</th>
+                `)
+
+                _users.push(v['name'])
+            })
+
+            if(_users.length > 5)
+                width   =   100 + ((_users.length - 5) * 5);
+            else
+                width   =   100
+
+            $(".table-div").css('width', `${width}%`)
+
+            $("#users_project").append(`
+                <th class="show-grafika">Total</th>
+            `)
+
+            $.each(result['project'], (i,v) => {
+                $("#hello").append(`
+                    <tbody class="item-table">
+                        <tr class="clickable" id="project-${v['id']}" data-toggle="collapse" data-target="#group-of-rows-${i}" aria-expanded="false" aria-controls="group-of-rows-${i}">
+                            <td>${ ((v['series']).length > 0 ? `<i class="fa fa-plus" aria-hidden="true">` : '') } &#160;&#160; ${ v['name'] }</i></td>
+                        </tr>
+                    </tbody>
+
+                    <tbody id="group-of-rows-${i}" class="collapse item-table">
+                            
+                    </tbody>
+                `)
+
+                $.each(v['series'], (q,w) => {
+                    $(`#group-of-rows-${i}`).append(`
+                        <tr id="task-${w['id']}">
+                            <td>&#160;&#160;&#160;&#160; ${ w['name'] }</i></td>
+                        </tr>
+                    `)
+
+                    total       = []
+                    total_semua =   0
+
+                    $.each(w['timesheets'], (a,c) => {
+                        if(total[`${ c['team'] }`] != undefined) {
+                            hasil = total[`${ c['team'] }`] + c['total']
+                            total[`${ c['team'] }`] = hasil
+                        } else {
+                            total[`${ c['team'] }`] = c['total']
+                        }
+                    })
+
+                    $.each(result['users'], (u,s) => {
+                        if(total[s['name']]) {
+                            total_semua += total[s['name']]
+                        }
+
+                        $(`#task-${w['id']}`).append(`
+                            <td>${ total[s['name']] || '-' }</td>
+                        `)
+                    })
+
+                    $(`#task-${w['id']}`).append(`
+                        <td>${ total_semua || '-' }</td>
+                    `)
+                })
+            })
+
             var pivotGrid = $("#pivotgrid").dxPivotGrid({
                 allowSortingBySummary: true,
                 allowFiltering: true,
@@ -341,6 +498,34 @@ flectra.define('operational.dashboard', function(require) {
                 showRowGrandTotals: false,
                 showRowTotals: true,
                 showColumnTotals: false,
+                onCellClick: function (e) {            
+                    var dataSource,
+                    pivotGridDataSource = e.component.getDataSource(),
+                    cellObject;
+                    if (e.area == "data") {
+                    cellObject = e.cell;
+                    } else if (e.area == "row") {
+                    cellObject = {
+                        rowPath: e.cell.path,
+                        dataIndex: 0
+                    }
+                    } else if (e.area == "column") {
+                    cellObject = {
+                        columnPath: e.cell.path,
+                        dataIndex: 0
+                    }
+                    }
+
+                    if (cellObject) {
+                    dataSource = new DevExpress.data.DataSource({
+                        store: pivotGridDataSource.createDrillDownDataSource(cellObject).store(),
+                        paginate: false
+                    });
+                    dataSource.load().done(function(result) {
+                        console.log(result);
+                    });
+                    }
+                },        
                 fieldChooser: {
                     enabled: true,
                     height: 400
@@ -349,65 +534,11 @@ flectra.define('operational.dashboard', function(require) {
                     visible: true
                 },
                 dataSource: {
-                    fields: [
-                    {
-                        caption: "Project",
-                        width: 120,
-                        dataField: "project",
-                        area: "row",
-                    }, {
-                        caption: "Vendor",
-                        width: 120,
-                        dataField: "vendor",
-                        area: "row",
-                    }, {
-                        caption: "Area",
-                        width: 120,
-                        dataField: "area",
-                        area: "row",
-                    }, {
-                        caption: "Item",
-                        dataField: "item",
-                        width: 150,
-                        area: "row"
-                    }, {
-                        caption: "Sub No",
-                        dataField: "sub_no",
-                        width: 150,
-                        area: "row"
-                    }, {
-                        caption: "Komponen",
-                        dataField: "komponen",
-                        width: 150,
-                        area: "row"
-                    }, {
-                        caption: "QTY",
-                        dataField: "qty",
-                        area: "row",
-                        width: 150,
-                    }, {
-                        caption: "Satuan",
-                        dataField: "satuan",
-                        area: "row",
-                        width: 150,
-                    }, {
-                        caption: "Harga",
-                        dataField: "harga",
-                        area: "row",
-                        width: 150,
-                    }, {
-                        caption: "Total",
-                        dataField: "amount",
-                        dataType: "number",
-                        summaryType: "sum",
-                        format: "currency",
-                        area: "data"
-                    }],
+                    fields: fields,
                     store: sales
                 }
             }).dxPivotGrid("instance");
         },
-
         //--------------------------------------------------------------------------
         // Handlers
         //--------------------------------------------------------------------------
@@ -445,6 +576,8 @@ flectra.define('operational.dashboard', function(require) {
 
             if(event.target.id != 'filter_project')
                 self.render_projects(year, users)
+
+            self.load_table()
         },
 
         change_action_date: function(event) {
@@ -470,7 +603,6 @@ flectra.define('operational.dashboard', function(require) {
                 $("#total_semua").html(`${ result[0]['total'] }`)
                 $("#selesai").html(`${ result[0]['value'][0]['selesai'] }`)
                 $("#belum").html(`${ result[0]['value'][0]['belum selesai'] }`)
-                console.log(option)
 
                 self.load_chart(chart, canvas, result, index, option)
             })
