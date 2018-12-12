@@ -14,6 +14,21 @@
         <field name="group_ids" eval="[]"/>
     </record>
 
+    <record model="telegram.command" id="produk_command">
+        <field name="name">/produk</field>
+        <field name="description">Get list of available commands</field>
+        <field name="sequence" eval="990"/>
+        <field name="response_code">data = {'all_commands':''}
+all_commands = env['product.product'].search([])
+for command in all_commands:
+    data['all_commands'] += str(command.name) + '\n'
+        </field>
+        <field name="response_template" type="xml">
+            <t><t t-raw="data['all_commands']"/></t>
+        </field>
+        <field name="group_ids" eval="[]"/>
+    </record>
+
     <record model="telegram.command" id="help_command">
         <field name="name">/help</field>
         <field name="description">Get list of available commands</field>
