@@ -19,11 +19,7 @@
 Choose your language
 </t>
 <t t-if="data['type'] == 'finish'">
-Hi! I am a bot to account expenses, income, plan budgets, etc.
-To see examples of my reports simply send command /report_example.
-To add new record about an expense, send a text message for example "Dinner 200". You are able to remove any test data by sending command /reset. To get full list of available commands send /help.
-
-I'm at your command!
+<t t-esc="data['starter']"/>
 </t>
 </t>
         </field>

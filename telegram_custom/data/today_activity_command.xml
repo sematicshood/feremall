@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+<data>
+
+    <record model="telegram.command" id="today_activity_comman">
+        <field name="name">/today_activity</field>
+        <field name="description">Aktivitas mu hari ini</field>
+        <field name="type">normal</field>
+        <field name="universal">True</field>
+        <field name="group_ids" eval="[(4, ref('base.group_user'))]" />
+        <field name="response_code">
+            <![CDATA[
+data['project'] = command.today_activity(telegram['tsession'])
+data['user']    = telegram['tsession'].user_id[0].name
+
+data['smile'] = emoji.emojize(':blush:', use_aliases=True)
+data['satisfied'] = emoji.emojize(':satisfied:', use_aliases=True)
+            ]]>
+        </field>
+        <field name="response_template" type="xml">
+<t>
+<t>Task Hari Ini</t>
+<t t-foreach="data['project']" t-as="p">
+<t>Hai <t t-esc="p['user']"/>! kamu memiliki aktivitas <t t-esc="p['name']"/> dan harus diselesaikan sebelum tanggal <t t-esc="p['date_deadline']"/> ya <t t-esc="data['satisfied']"/></t>
+</t>
+<t>Semangat <t t-esc="data['user']"/>! <t t-esc="data['smile']"/></t>
+</t>
+        </field>
+    </record>
+
+    <record model="telegram.command" id="today_activity_all">
+        <field name="name">/today_activity_all</field>
+        <field name="description">Aktivitas hari ini semua karyawan</field>
+        <field name="type">normal</field>
+        <field name="universal">True</field>
+        <field name="group_ids" eval="[(4, ref('base.group_user'))]" />
+        <field name="response_code">
+            <![CDATA[
+data['project'] = command.today_activity(telegram['tsession'], type='all')
+
+data['smile'] = emoji.emojize(':blush:', use_aliases=True)
+data['satisfied'] = emoji.emojize(':satisfied:', use_aliases=True)
+            ]]>
+        </field>
+        <field name="response_template" type="xml">
+<t>
+<t>Semua Task Hari Ini</t>
+<t t-foreach="data['project']" t-as="p">
+<t><t t-esc="p['user']"/> <t t-esc="p['name']"/></t>
+</t>
+</t>
+        </field>
+    </record>
+
+</data>
+</flectra>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+    <data>
+        <record id="setting_start_telebot" model="ir.ui.view">
+            <field name="name">telebot.setting.form</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_form"></field>
+            <field name="arch" type="xml">
+                <xpath expr="//form/sheet/notebook/page/group" position="before">
+                    <group name="telebot">
+                        <field name="start_telebot" placeholder="Teks awal telebot"></field>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</flectra>

@@ -89,6 +89,14 @@ flectra.define('api.bca', function(require) {
             });
         },
 
+        cek_error: function(result) {
+            if(result == 'error') {
+                alert('option api pada pengaturan harus diisi')
+
+                return true
+            }
+        },
+
         render_balance: function() {
             let self    =   this
 
@@ -96,6 +104,9 @@ flectra.define('api.bca', function(require) {
                 route: '/api_bca/get_balance',
                 params: {},}).done(function
             (result) {
+                if(self.cek_error(result))
+                    return false
+            
                 $("#table-balance").empty()
                 $("#head-table").empty()
 
@@ -126,6 +137,7 @@ flectra.define('api.bca', function(require) {
                 })
 
                 $(".table").DataTable()
+
             });
         },
 
@@ -146,6 +158,9 @@ flectra.define('api.bca', function(require) {
                 params: {},}).done(function
             (result) {
                 let data    =   result.Data
+
+                if(self.cek_error(result))
+                    return false
 
                 $("#table-balance").empty()
                 $("#head-table").empty()

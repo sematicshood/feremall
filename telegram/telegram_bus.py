@@ -137,7 +137,7 @@ class TelegramDispatch(object):
             with flectra.api.Environment.manage():
                 if registry.get('telegram.bus', False):
                     env = flectra.api.Environment(cr, SUPERUSER_ID, {})
-                    notifications = env['telegram.bus'].poll(channels, last, options)
+                    notifications = env['telegram.bus'].sudo().poll(channels, last, options)
                 else:
                     notifications = []
         # or wait for future ones
@@ -149,7 +149,7 @@ class TelegramDispatch(object):
                 event.wait(timeout=timeout)
                 with registry.cursor() as cr:
                     env = flectra.api.Environment(cr, SUPERUSER_ID, {})
-                    notifications = env['telegram.bus'].poll(channels, last, options, force_status=True)
+                    notifications = env['telegram.bus'].sudo().poll(channels, last, options, force_status=True)
             except Exception:
                 # timeout
                 pass

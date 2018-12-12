@@ -13,6 +13,7 @@ class WebhookWoocomers(http.Controller):
         print('ganteng'*10)
         
         for p in product:
+            print(p.partner_id)
             data.append({
                 'user': p.user_id[0].name,
                 'partner': p.partner_id[0].name if len(p.partner_id) > 0 else None,

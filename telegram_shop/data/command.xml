@@ -19,6 +19,7 @@ categ_id = None
 product_id = None
 callback_data = telegram.get('callback_data') or {}
 callback_query = telegram.get('callback_query') or {}
+
 if callback_data:
     categ_id = callback_data.get(CATEGORY_KEY)
     product_id = callback_data.get(PRODUCT_KEY)
@@ -84,12 +85,12 @@ else:
     res = env['product.public.category'].search(domain)
     if res:
         data['type'] = 'categories'
-    for r in res:
-        buttons.append({
-            'text': r.name, 
-            'callback_data': {
-                CATEGORY_KEY: r.id,
-            }})
+        for r in res:
+            buttons.append({
+                'text': r.name, 
+                'callback_data': {
+                    CATEGORY_KEY: r.id,
+                }})
 
     if not res:
         # products
@@ -108,10 +109,11 @@ else:
                 }})
         if not res:
             data['type'] = 'not_found'
-    if buttons:
+    if buttons:     
         command.inline_keyboard_buttons(options, buttons, row_width=2)
 ]]>
         </field>
+        <!-- command.inline_keyboard_buttons(options, buttons, row_width=2) -->
         <field name="response_template" type="xml">
             <t>
                 <t t-if="data.get('type', False)">

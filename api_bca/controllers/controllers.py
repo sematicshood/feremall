@@ -46,21 +46,27 @@ class ApiBca(http.Controller):
 
     @http.route('/api_bca/get_balance', type='json')
     def api_balance(self):
-        account_number  =   []
+        try:
+            account_number  =   []
 
-        bank        =   request.env["account.journal"].search([('bank_account_id', '!=', None), ('company_id', '=', self.company_id())])
+            bank        =   request.env["account.journal"].search([('bank_account_id', '!=', None), ('company_id', '=', self.company_id())])
 
-        for b in bank:
-            account_number.append(b.bank_account_id[0].acc_number)
+            for b in bank:
+                account_number.append(b.bank_account_id[0].acc_number)
 
-        bca     =   self.bca()
-        balance =   bca.get_balance(self.corporate_id, account_number or None)
+            bca     =   self.bca()
+            balance =   bca.get_balance(self.corporate_id, account_number or None)
 
-        return balance["AccountDetailDataSuccess"]
+            return balance["AccountDetailDataSuccess"]
+        except:
+            return 'error'
 
     @http.route('/api_bca/get_transaction/<number>/<start>/<end>', type='json')
     def get_transaction(self, number, start, end):
-        bca     =   self.bca()
-        balance =   bca.account_statement(self.corporate_id, number, start, end)
+        try:
+            bca     =   self.bca()
+            balance =   bca.account_statement(self.corporate_id, number, start, end)
 
-        return balance
+            return balance
+        except:
+            return 'error'

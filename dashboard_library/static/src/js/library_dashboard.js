@@ -16,14 +16,16 @@ function create_chart(ctx, datasets, labels, index, chart, option = {}) {
     let stack   =   false,
         title   =   {
             display: false,
-            text: 'Library Dashboard'
         }
     
     if(option[0] != undefined) {
         stack           =   option[0].stack || stack
-        title           =   {
-            display: true,
-            text: option[0].title
+
+        if(option[0].title.length > 0) {
+            title           =   {
+                display: true,
+                text: option[0].title
+            }
         }
     }
 
@@ -82,6 +84,13 @@ function create_chart(ctx, datasets, labels, index, chart, option = {}) {
                     });
                 }
             }
+        }
+    }
+
+    if(option[0] != undefined) {
+        if(option[0].rupiah == false) {
+            delete options.tooltips
+            delete options.scales
         }
     }
 
@@ -168,12 +177,21 @@ function process_chart(ctx, chart, data, canvas, option) {
         $.each(v, function(key, value) {
             let color   =   color_generator([value])
 
+            if($.type(value) == 'array') {
+                val = value
+            } else {
+                val = [value]
+            }
+
             let data = {
                 label: [key],
                 backgroundColor: color[0],
                 borderColor: color[1],
-                data: [value]
+                data: val
             }
+
+            if(chart == 'line')
+                data['fill'] = false
 
             datasets.push(data)
         })

@@ -23,8 +23,8 @@ ask_lang = False
 finish = False
 if env.ref('base.public_user').id == env.user.id:
     # register new user
-    template_user_id = env['ir.config_parameter'].get_param('telegram_portal.template_user_id')
-    template_user = env['res.users'].browse(int(template_user_id))
+    template_user_id = env['ir.config_parameter'].sudo().get_param('telegram_portal.template_user_id')
+    template_user = env['res.users'].sudo().browse(int(template_user_id))
     tuser = telegram['tmessage'].from_user
     login = 'telegram_%s' % tuser.id
     user = env['res.users'].sudo().with_context(active_test=False).search([('login', '=', login)])
@@ -57,7 +57,7 @@ elif not finish:
     ask_lang = True
 
 if ask_lang:
-    languages = env['res.lang'].get_installed()
+    languages = env['res.lang'].sudo().get_installed()
 
     _logger.debug('languages %s', languages)
     if len(languages) > 1:
@@ -71,6 +71,8 @@ if ask_lang:
 if finish:
     data['type'] = 'finish'
     data['name'] = user.name
+    data['starter'] = command.get_start('Feremall')
+
         </field>
         <field name="response_template" type="xml">
 <t>
